@@ -21,7 +21,7 @@
             <h2>
                 ${test}
             </h2>
-            <button class="btn btn-primary" >bootstrap</button>
+            <a href="/admin/create" class="btn btn-primary" >create</a>
             <button>css</button>
         </body>
 
