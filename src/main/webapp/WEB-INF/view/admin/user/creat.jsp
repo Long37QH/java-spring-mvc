@@ -16,6 +16,7 @@
 
                 <!-- ckediter -->
                 <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
+                <!-- link css trong the muc resources -->
                 <link rel="stylesheet" href="/css/style.css">
             </head>
 
@@ -25,14 +26,15 @@
                         <div class=" col-md-6 col-12 mx-auto">
                             <h2 class="">create new user</h2>
                             <hr class="">
-                            <form:form method="post"  action="/admin/user/creat" modelAttribute="usernew" >
+                            <form:form method="post" action="/admin/user/creat" modelAttribute="usernew">
                                 <div class="mb-3">
                                     <label for="fullName" class="form-label">Họ tên:</label>
-                                    <form:input type="text" class="form-control" id="fullName" path="fullName"/>
+                                    <form:input type="text" class="form-control" id="fullName" path="fullName" />
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Địa chỉ Email:</label>
-                                    <form:input type="email" class="form-control" id="email" path="email" aria-describedby="emailHelp"/>
+                                    <form:input type="email" class="form-control" id="email" path="email"
+                                        aria-describedby="emailHelp" />
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
