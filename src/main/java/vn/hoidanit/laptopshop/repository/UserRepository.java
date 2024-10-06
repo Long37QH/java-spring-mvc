@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
-    // ham save data = insert into user values ()
+    // ham save data = insert into user values () dung cho car create va update
     User save(User usernew); 
 
     List<User> findByEmail(String email);
@@ -17,4 +17,6 @@ public interface UserRepository extends JpaRepository<User,Long> {
     List<User> findAll();
 
     User findById(long id);
+
+   void deleteById(long id);
 }

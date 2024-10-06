@@ -18,6 +18,9 @@
                 <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
                 <!-- link css trong the muc resources -->
                 <link rel="stylesheet" href="/css/style.css">
+
+                <!-- Toastr CSS -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
             </head>
 
             <body>
@@ -46,12 +49,13 @@
                                             <td>${user.email}</td>
                                             <td>
                                                 <a class="btn btn-success" href="/admin/user/${user.id}">Xem</a>
-                                                <a class="btn btn-warning mx-2 " href="/admin/user/update/${user.id}">Sua</a>
-                                                <a class="btn btn-danger" href="">Xoa</a>
+                                                <a class="btn btn-warning mx-2 "
+                                                    href="/admin/user/update/${user.id}">Sua</a>
+                                                <a class="btn btn-danger" href="/admin/user/delete/${user.id}">Xoa</a>
                                             </td>
                                         </tr>
                                     </c:forEach>
-                                    
+
                                 </tbody>
                             </table>
                         </div>
@@ -62,6 +66,7 @@
                     // Khởi tạo CKEditor cho textarea
                     CKEDITOR.replace('editor');
                 </script> -->
+                
             </body>
 
             </html>
