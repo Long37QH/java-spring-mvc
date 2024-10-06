@@ -18,6 +18,14 @@
                 <script src="https://cdn.ckeditor.com/4.20.0/standard/ckeditor.js"></script>
                 <!-- link css trong the muc resources -->
                 <link rel="stylesheet" href="/css/style.css">
+
+                <!-- Toastr CSS -->
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+
+                <!-- Toastr JS -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             </head>
 
             <body>
@@ -65,6 +73,7 @@
                     // Khởi tạo CKEditor cho textarea
                     CKEDITOR.replace('editor');
                 </script> -->
+
             </body>
 
             </html>

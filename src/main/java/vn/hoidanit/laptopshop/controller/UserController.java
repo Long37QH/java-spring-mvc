@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UserService;
@@ -28,7 +29,7 @@ public class UserController {
         List<User> arrUser = userService.getAllByEmail("badgun37@gmail.com");
         System.out.println(arrUser);
         // model.addAttribute("test", "test");
-        return "test";
+        return "/client/home";
     }
 
     // trang danh sach user
@@ -58,9 +59,10 @@ public class UserController {
     // thuc hien create new
 
     @PostMapping("/admin/user/creat")
-    public String getValueInform(Model model, @ModelAttribute("usernew") User userNew) {
+    public String getValueInform(Model model, @ModelAttribute("usernew") User userNew,RedirectAttributes redirectAttributes ){
         System.out.println("run hear : " + userNew);
         this.userService.handlSaveUser(userNew);
+        redirectAttributes.addFlashAttribute("message", "Thêm user thành công!");
         return "redirect:/admin/user";
     }
 
@@ -82,7 +84,7 @@ public class UserController {
     // xu ly update user 
 
     @PostMapping("/admin/user/update")
-    public String postMethodName(Model model, @ModelAttribute("user") User userUp) {
+    public String postMethodName(Model model, @ModelAttribute("user") User userUp ,RedirectAttributes redirectAttributes ) {
         User currenUser = this.userService.getUserById(userUp.getId());
         if (currenUser != null) {
             currenUser.setAddRess(userUp.getAddRess());
@@ -90,7 +92,9 @@ public class UserController {
             currenUser.setPhone(userUp.getPhone());
 
             this.userService.handlSaveUser(currenUser);
+            redirectAttributes.addFlashAttribute("message", "Cập nhật thành công!");
         }
+        
         return "redirect:/admin/user";
     }
 
@@ -110,8 +114,9 @@ public class UserController {
 
     //thuc hien xoa kho chuyen trang
     @GetMapping("/admin/user/delete/{id}")
-    public String getDeletePage(Model model, @PathVariable long id) {
+    public String getDeletePage(Model model, @PathVariable long id , RedirectAttributes redirectAttributes) {
         this.userService.deleteUser(id);
+        redirectAttributes.addFlashAttribute("message", "Xóa bản ghi thành công!");
         return "redirect:/admin/user";
     }
 

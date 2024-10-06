@@ -20,7 +20,12 @@
                 <link rel="stylesheet" href="/css/style.css">
 
                 <!-- Toastr CSS -->
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+
+                <!-- Toastr JS -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             </head>
 
             <body>
@@ -66,7 +71,32 @@
                     // Khởi tạo CKEditor cho textarea
                     CKEDITOR.replace('editor');
                 </script> -->
-                
+
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "newestOnTop": true,
+                            "progressBar": true,
+                            "positionClass": "toast-top-right", // Thay đổi vị trí hiển thị
+                            "preventDuplicates": true,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "3000", // Thời gian tồn tại của thông báo
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        };
+                        // Check if there's a flash attribute 'message'
+                        <c:if test="${not empty message}">
+                            toastr.success("${message}");
+                        </c:if>
+                    });
+                </script>
+
             </body>
 
             </html>
