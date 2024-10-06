@@ -12,7 +12,7 @@ import vn.hoidanit.laptopshop.service.UserService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-
+import org.springframework.web.bind.annotation.PathVariable;
 // import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -40,6 +40,15 @@ public class UserController {
         List<User> listUser = userService.getAllUsers();
         model.addAttribute("listUser1", listUser);     
         return "/admin/user/list_user";
+    }
+
+    // trang danh sach user 
+    @GetMapping("/admin/user/{id}")
+    public String getUserDetailPage(Model model,@PathVariable long id) { 
+        System.out.println("check path id >> " + id);
+        User user = this.userService.getUserById(id);
+        model.addAttribute("user", user);     
+        return "/admin/user/user_detail";
     }
     
 
