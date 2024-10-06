@@ -11,5 +11,8 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User,Long> {
     // ham save data = insert into user values ()
     User save(User usernew); 
+
     List<User> findByEmail(String email);
+
+    List<User> findAll();
 }

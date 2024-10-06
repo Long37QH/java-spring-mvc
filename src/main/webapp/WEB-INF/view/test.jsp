@@ -17,12 +17,14 @@
         </head>
 
         <body>
-            test view jsp
-            <h2>
-                ${test}
-            </h2>
-            <a href="/admin/create" class="btn btn-primary" >create</a>
-            <button>css</button>
+            <div class="container mt-5">
+                <div class="row">
+                    <h1 class="text-center">Trang chu</h1>
+                </div>
+                <a href="/admin/user" class="btn btn-warning" >List User</a>
+                <a href="/admin/user/creat" class="btn btn-primary" >create</a>
+                <button>css</button>
+            </div>        
         </body>
 
         </html>
