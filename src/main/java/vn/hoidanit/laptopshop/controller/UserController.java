@@ -20,15 +20,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
-    private UserService userService;
+    private final UserService userService;
+    
     
     public UserController(UserService userService) {
-        this.userService = userService;
+        this.userService = userService;   
     }
     @RequestMapping("/") 
     public String getHomePage(Model model){
-        String test  = this.userService.hello();
-        model.addAttribute("test", test);
+        model.addAttribute("test", "test");
         return "test";
     }
 
@@ -47,6 +47,7 @@ public class UserController {
     @PostMapping("/admin/user/creat")
     public String getValueInform(Model model,@ModelAttribute("usernew") User userNew ) {
         System.out.println("run hear : "+ userNew);
+        this.userService.handlSaveUser(userNew);
         return "test";
     }
     
