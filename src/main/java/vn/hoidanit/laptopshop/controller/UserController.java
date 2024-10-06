@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 
+
+
+
 @Controller
 public class UserController {
     private final UserService userService;
@@ -70,6 +73,27 @@ public class UserController {
     //     System.out.println("run hear : "+userNew);
     //     return "test";
     // }
+    
+    @GetMapping("/admin/user/update/{id}")
+    public String getUpdatePage(Model model, @PathVariable long id) {
+        User user = this.userService.getUserById(id);
+        model.addAttribute("user", user);
+        return "/admin/user/update_user";
+    }
+
+    @PostMapping("/admin/user/update")
+    public String postMethodName(Model model,@ModelAttribute("user") User userUp) {
+        User currenUser = this.userService.getUserById(userUp.getId());
+        if(currenUser != null){
+            currenUser.setAddRess(userUp.getAddRess());
+            currenUser.setFullName(userUp.getFullName());
+            currenUser.setPhone(userUp.getPhone());
+
+            this.userService.handlSaveUser(currenUser);
+        }
+        return "redirect:/admin/user";
+    }
+    
     
     
 }

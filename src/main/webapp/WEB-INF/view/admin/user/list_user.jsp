@@ -46,7 +46,7 @@
                                             <td>${user.email}</td>
                                             <td>
                                                 <a class="btn btn-success" href="/admin/user/${user.id}">Xem</a>
-                                                <a class="btn btn-warning mx-2 " href="">Sua</a>
+                                                <a class="btn btn-warning mx-2 " href="/admin/user/update/${user.id}">Sua</a>
                                                 <a class="btn btn-danger" href="">Xoa</a>
                                             </td>
                                         </tr>
