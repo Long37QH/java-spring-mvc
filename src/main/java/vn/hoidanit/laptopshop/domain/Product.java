@@ -22,6 +22,10 @@ public class Product {
     private long sold;
     private String factory;
     private String target;
+
+    // thiet lap lien ket voi bang order_detail   co the khon can
+    // @OneToMany(mappedBy = "product")
+    //  List<OrderDetail> orderDetails;
     
     public long getId() {
         return id;
