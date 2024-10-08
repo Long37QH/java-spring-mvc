@@ -26,6 +26,20 @@
                 <!-- Toastr JS -->
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+                <!-- jequery image Preview -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+                <script>
+                    $(document).ready(() => {
+                        const avatarFile = $("#avatarFile");
+                        avatarFile.change(function (e) {
+                            const imgURL = URL.createObjectURL(e.target.files[0]);
+                            $("#avatarPreview").attr("src", imgURL);
+                            $("#avatarPreview").css({ "display": "block" });
+                        });
+                    }); 
+                </script>
             </head>
 
             <body class="sb-nav-fixed">
@@ -50,33 +64,66 @@
                                         <div class=" col-md-6 col-12 mx-auto">
                                             <h2 class="">create new user</h2>
                                             <hr class="">
-                                            <form:form method="post" action="/admin/user/creat" modelAttribute="usernew">
-                                                <div class="mb-3">
-                                                    <label for="fullName" class="form-label">Họ tên:</label>
-                                                    <form:input type="text" class="form-control" id="fullName" path="fullName" />
+                                            <form:form method="post" enctype="multipart/form-data"  action="/admin/user/creat"
+                                                modelAttribute="usernew">
+                                                <div class="row g-3">
+                                                    <div class="col">
+                                                        <label for="email" class="form-label">Địa chỉ Email:</label>
+                                                        <form:input type="email" class="form-control" id="email"
+                                                            path="email" aria-describedby="emailHelp" />
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="password" class="form-label">Password</label>
+                                                        <form:input type="password" class="form-control" id="password"
+                                                            path="passwors" />
+                                                    </div>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label for="email" class="form-label">Địa chỉ Email:</label>
-                                                    <form:input type="email" class="form-control" id="email" path="email"
-                                                        aria-describedby="emailHelp" />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="password" class="form-label">Password</label>
-                                                    <form:input type="password" class="form-control" id="password" path="passwors" />
+
+                                                <div class="row g-3">
+                                                    <div class="col">
+                                                        <label for="fullName" class="form-label">Họ tên:</label>
+                                                        <form:input type="text" class="form-control" id="fullName"
+                                                            path="fullName" />
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="phone" class="form-label">Số điện thoại:</label>
+                                                        <form:input type="text" class="form-control" id="phone"
+                                                            path="phone" />
+                                                    </div>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="addRess" class="form-label">Địa chỉ:</label>
-                                                    <form:input type="text" class="form-control" id="addRess" path="addRess" />
+                                                    <form:input type="text" class="form-control" id="addRess"
+                                                        path="addRess" />
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label for="phone" class="form-label">Số điện thoại:</label>
-                                                    <form:input type="text" class="form-control" id="phone" path="phone" />
+
+                                                <div class="row g-3 mb-3">
+                                                    <div class="col">
+                                                        <label class="form-label">Role:</label>
+                                                        <form:select class="form-select" path="role.name">
+                                                            <!-- <option selected></option> -->
+                                                            <form:option value="ADMIN"/>
+                                                            <form:option value="USER"/>
+                                                        </form:select>
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="avatarFile" class="form-label">Avatar:</label>
+                                                        <input class="form-control" type="file" id="avatarFile"
+                                                            accept=".png, .jpg, .jpeg" name="fileImage" >
+                                                    </div>
+                                                </div>
+                                                <div class=" col-12 mb-3">
+                                                    <img style="max-height: 250px; display: none;" alt="avatar Preview"
+                                                        id="avatarPreview">
                                                 </div>
                                                 <!-- <div class="mb-3">
                                                     <label for="mota" class="form-label">Mô tả:</label>
                                                     <textarea name="mota" id="editor"></textarea>
                                                 </div> -->
-                                                <button type="submit" class="btn btn-primary">save</button>
+                                                <div class="mb-5">
+                                                    <button type="submit" class="btn btn-primary">save</button>
+                                                </div>
+
                                             </form:form>
                                         </div>
                                     </div>

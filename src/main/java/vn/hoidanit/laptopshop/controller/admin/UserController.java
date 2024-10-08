@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-// import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import vn.hoidanit.laptopshop.domain.User;
+import vn.hoidanit.laptopshop.service.UploadService;
 import vn.hoidanit.laptopshop.service.UserService;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,22 +16,27 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class UserController {
     private final UserService userService;
+    private final UploadService uploadService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, UploadService uploadService) {
         this.userService = userService;
+        this.uploadService = uploadService;
     }
 
     // @RequestMapping("/")
     // public String getHomePage(Model model) {
-    //     List<User> arrUser = userService.getAllByEmail("badgun37@gmail.com");
-    //     System.out.println(arrUser);
-    //     // model.addAttribute("test", "test");
-    //     return "/client/home";
+    // List<User> arrUser = userService.getAllByEmail("badgun37@gmail.com");
+    // System.out.println(arrUser);
+    // // model.addAttribute("test", "test");
+    // return "/client/home";
     // }
+
 
     // trang danh sach user
     @GetMapping("/admin/user")
@@ -59,19 +65,16 @@ public class UserController {
     // thuc hien create new
 
     @PostMapping("/admin/user/creat")
-    public String getValueInform(Model model, @ModelAttribute("usernew") User userNew,RedirectAttributes redirectAttributes ){
-        System.out.println("run hear : " + userNew);
-        this.userService.handlSaveUser(userNew);
-        redirectAttributes.addFlashAttribute("message", "Thêm user thành công!");
+    public String getValueInform(Model model, @ModelAttribute("usernew") User userNew,
+            @RequestParam("fileImage") MultipartFile file,
+            RedirectAttributes redirectAttributes) {
+        
+            String avatar = this.uploadService.handeSaveUploadFile(file, "avatar");
+        // System.out.println("run hear : " + userNew);
+        // this.userService.handlSaveUser(userNew);
+        //redirectAttributes.addFlashAttribute("message", "Thêm user thành công!");
         return "redirect:/admin/user";
     }
-
-    // @RequestMapping(value = "/admin/user/creat", method=RequestMethod.POST)
-    // public String getValueInform(Model model,@ModelAttribute("usernew") User
-    // userNew ) {
-    // System.out.println("run hear : "+userNew);
-    // return "test";
-    // }
 
     // lay thong tin hien thi trang update
     @GetMapping("/admin/user/update/{id}")
@@ -81,10 +84,11 @@ public class UserController {
         return "/admin/user/update_user";
     }
 
-    // xu ly update user 
+    // xu ly update user
 
     @PostMapping("/admin/user/update")
-    public String postMethodName(Model model, @ModelAttribute("user") User userUp ,RedirectAttributes redirectAttributes ) {
+    public String postMethodName(Model model, @ModelAttribute("user") User userUp,
+            RedirectAttributes redirectAttributes) {
         User currenUser = this.userService.getUserById(userUp.getId());
         if (currenUser != null) {
             currenUser.setAddRess(userUp.getAddRess());
@@ -94,31 +98,30 @@ public class UserController {
             this.userService.handlSaveUser(currenUser);
             redirectAttributes.addFlashAttribute("message", "Cập nhật thành công!");
         }
-        
+
         return "redirect:/admin/user";
     }
 
     // // delete user
     // @GetMapping("/admin/user/delete/{id}")
     // public String getDeletePage(Model model, @PathVariable long id) {
-    //     User user = this.userService.getUserById(id);
-    //     model.addAttribute("user", user);
-    //     return "/admin/user/delete";
+    // User user = this.userService.getUserById(id);
+    // model.addAttribute("user", user);
+    // return "/admin/user/delete";
     // }
 
     // @PostMapping("/admin/user/delete")
     // public String deleteUser(Model model, @ModelAttribute("user") User userDel) {
-    //     this.userService.deleteUser(userDel.getId());
-    //     return "redirect:/admin/user";
+    // this.userService.deleteUser(userDel.getId());
+    // return "redirect:/admin/user";
     // }
 
-    //thuc hien xoa kho chuyen trang
+    // thuc hien xoa kho chuyen trang
     @GetMapping("/admin/user/delete/{id}")
-    public String getDeletePage(Model model, @PathVariable long id , RedirectAttributes redirectAttributes) {
+    public String getDeletePage(Model model, @PathVariable long id, RedirectAttributes redirectAttributes) {
         this.userService.deleteUser(id);
         redirectAttributes.addFlashAttribute("message", "Xóa bản ghi thành công!");
         return "redirect:/admin/user";
     }
-
 
 }
