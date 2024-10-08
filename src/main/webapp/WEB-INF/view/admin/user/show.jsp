@@ -59,6 +59,7 @@
                                                         <th>id</th>
                                                         <th>Email</th>
                                                         <th>Full Name</th>
+                                                        <th>Role</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -68,6 +69,7 @@
                                                             <th>${user.id}</th>
                                                             <td>${user.fullName}</td>
                                                             <td>${user.email}</td>
+                                                            <td>${user.role.name}</td>
                                                             <td>
                                                                 <a class="btn btn-success" href="/admin/user/${user.id}">Xem</a>
                                                                 <a class="btn btn-warning mx-2 "

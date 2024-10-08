@@ -79,6 +79,7 @@ public class UserController {
         // cap nhat lai thong tin vao doi tuong usernew
         userNew.setAvatar(avatar);
         userNew.setPasswors(hashPassword);
+        userNew.setRole(this.userService.getRoleByName(userNew.getRole().getName()));
 
         // System.out.println("run hear : " + userNew);
         this.userService.handlSaveUser(userNew);
@@ -97,13 +98,18 @@ public class UserController {
     // xu ly update user
 
     @PostMapping("/admin/user/update")
-    public String postMethodName(Model model, @ModelAttribute("user") User userUp,
+    public String postMethodName(Model model, @ModelAttribute("user") User userUp, @RequestParam("fileImage") MultipartFile file,
             RedirectAttributes redirectAttributes) {
         User currenUser = this.userService.getUserById(userUp.getId());
         if (currenUser != null) {
             currenUser.setAddRess(userUp.getAddRess());
             currenUser.setFullName(userUp.getFullName());
             currenUser.setPhone(userUp.getPhone());
+
+            String avatar = this.uploadService.handeSaveUploadFile(file, "avatar");
+            currenUser.setAvatar(avatar);
+            
+            currenUser.setRole(this.userService.getRoleByName(userUp.getRole().getName()));
 
             this.userService.handlSaveUser(currenUser);
             redirectAttributes.addFlashAttribute("message", "Cập nhật thành công!");
