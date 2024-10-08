@@ -2,6 +2,7 @@ package vn.hoidanit.laptopshop.controller.admin;
 
 import java.util.List;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
@@ -23,10 +24,12 @@ import org.springframework.web.multipart.MultipartFile;
 public class UserController {
     private final UserService userService;
     private final UploadService uploadService;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, UploadService uploadService) {
+    public UserController(UserService userService, UploadService uploadService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.uploadService = uploadService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     // @RequestMapping("/")
@@ -36,7 +39,6 @@ public class UserController {
     // // model.addAttribute("test", "test");
     // return "/client/home";
     // }
-
 
     // trang danh sach user
     @GetMapping("/admin/user")
@@ -69,10 +71,18 @@ public class UserController {
             @RequestParam("fileImage") MultipartFile file,
             RedirectAttributes redirectAttributes) {
         
-            String avatar = this.uploadService.handeSaveUploadFile(file, "avatar");
+        //lay thonhg tin file anh
+        String avatar = this.uploadService.handeSaveUploadFile(file, "avatar");
+        //ma hoa pass
+        String hashPassword = this.passwordEncoder.encode(userNew.getPasswors());
+
+        // cap nhat lai thong tin vao doi tuong usernew
+        userNew.setAvatar(avatar);
+        userNew.setPasswors(hashPassword);
+
         // System.out.println("run hear : " + userNew);
-        // this.userService.handlSaveUser(userNew);
-        //redirectAttributes.addFlashAttribute("message", "Thêm user thành công!");
+        this.userService.handlSaveUser(userNew);
+        redirectAttributes.addFlashAttribute("message", "Thêm user thành công!");
         return "redirect:/admin/user";
     }
 
