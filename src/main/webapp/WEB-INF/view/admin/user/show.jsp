@@ -43,44 +43,42 @@
                                 <h1 class="mt-4">Manger Users</h1>
                                 <ol class="breadcrumb mb-4">
                                     <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Update User</li>
+                                    <li class="breadcrumb-item active">User</li>
                                 </ol>
-                                <div class="mt-5 mb-5">
+                                <div class="mt-5">
                                     <div class="row">
-                                        <div class=" col-md-6 col-12 mx-auto">
-                                            <h2 class="">Update user</h2>
+                                        <div class="col-12 mx-auto">
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <h3 class="">List Users</h3>
+                                                <a class="btn btn-primary" href="/admin/user/creat">Create user</a>
+                                            </div>
                                             <hr class="">
-                                            <form:form method="post" action="/admin/user/update" modelAttribute="user" >
-                                                <div class="mb-3" style="display: none;">
-                                                    <label for="id" class="form-label">ID:</label>
-                                                    <form:input type="text" class="form-control" path="id" />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="fullName" class="form-label">full Name :</label>
-                                                    <form:input type="text" class="form-control" path="fullName" />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="email" class="form-label">Email :</label>
-                                                    <form:input type="email" class="form-control" path="email" disabled="true" />
-                                                </div>
+                                            <table class="table table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>id</th>
+                                                        <th>Email</th>
+                                                        <th>Full Name</th>
+                                                        <th>Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <c:forEach var="user" items="${listUser1}">
+                                                        <tr>
+                                                            <th>${user.id}</th>
+                                                            <td>${user.fullName}</td>
+                                                            <td>${user.email}</td>
+                                                            <td>
+                                                                <a class="btn btn-success" href="/admin/user/${user.id}">Xem</a>
+                                                                <a class="btn btn-warning mx-2 "
+                                                                    href="/admin/user/update/${user.id}">Sua</a>
+                                                                <a class="btn btn-danger" href="/admin/user/delete/${user.id}">Xoa</a>
+                                                            </td>
+                                                        </tr>
+                                                    </c:forEach>
                 
-                                                <div class="mb-3">
-                                                    <label for="phone" class="form-label">Phone :</label>
-                                                    <form:input type="text" class="form-control" path="phone" />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="addRess" class="form-label">AddRess :</label>
-                                                    <form:input type="text" class="form-control" path="addRess" />
-                                                </div>
-                                                <!-- <div class="mb-3">
-                                                    <label for="mota" class="form-label">Mô tả:</label>
-                                                    <textarea name="mota" path="editor"></textarea>
-                                                </div> -->
-                                                <div class="mx-auto" >
-                                                    <button type="submit" class="btn btn-primary">update</button>
-                                                    <a href="/admin/user" class="btn btn-success">Back</a>
-                                                </div>
-                                            </form:form>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +99,29 @@
                 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
                     crossorigin="anonymous"></script>
                 <script src="js/datatables-simple-demo.js"></script> -->
-                
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "newestOnTop": true,
+                            "progressBar": true,
+                            "positionClass": "toast-top-right", // Thay đổi vị trí hiển thị
+                            "preventDuplicates": true,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "3000", // Thời gian tồn tại của thông báo
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        };
+                        // Check if there's a flash attribute 'message'
+                        <c:if test="${not empty message}">
+                            toastr.success("${message}");
+                        </c:if>
+                    });
                 </script>
             </body>
 

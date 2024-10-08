@@ -1,10 +1,10 @@
-package vn.hoidanit.laptopshop.controller;
+package vn.hoidanit.laptopshop.controller.admin;
 
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import vn.hoidanit.laptopshop.domain.User;
@@ -24,20 +24,20 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping("/")
-    public String getHomePage(Model model) {
-        List<User> arrUser = userService.getAllByEmail("badgun37@gmail.com");
-        System.out.println(arrUser);
-        // model.addAttribute("test", "test");
-        return "/client/home";
-    }
+    // @RequestMapping("/")
+    // public String getHomePage(Model model) {
+    //     List<User> arrUser = userService.getAllByEmail("badgun37@gmail.com");
+    //     System.out.println(arrUser);
+    //     // model.addAttribute("test", "test");
+    //     return "/client/home";
+    // }
 
     // trang danh sach user
     @GetMapping("/admin/user")
     public String getListUserPage(Model model) {
         List<User> listUser = userService.getAllUsers();
         model.addAttribute("listUser1", listUser);
-        return "/admin/user/list_user";
+        return "/admin/user/show";
     }
 
     // trang user info

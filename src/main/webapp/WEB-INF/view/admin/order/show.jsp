@@ -14,18 +14,6 @@
                 <!-- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" /> -->
                 <link href="/css/styles.css" rel="stylesheet" />
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-
-                <!-- Latest compiled and minified CSS -->
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-                <!-- Latest compiled JavaScript -->
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-                <!-- Toastr CSS -->
-                <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
-                <!-- Toastr JS -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             </head>
 
             <body class="sb-nav-fixed">
@@ -40,34 +28,12 @@
                     <div id="layoutSidenav_content">
                         <main>
                             <div class="container-fluid px-4">
-                                <h1 class="mt-4">Manger Users</h1>
+                                <h1 class="mt-4">Mange Orders</h1>
                                 <ol class="breadcrumb mb-4">
                                     <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Update User</li>
+                                    <li class="breadcrumb-item active">Order</li>
                                 </ol>
-                                <div class="mt-5 mb-5">
-                                    <div class="row">
-                                        <div class="col-12 mx-auto">
-                                            <div class="d-flex justify-content-between mb-2">
-                                                <h3 class="">Detail User by id = ${user.id}</h3>
-                                            </div>
-                                            <hr class="">
-                                            <div class="card mb-2" style="width: 60%;">
-                                                <div class="card-header ">
-                                                    User Info
-                                                </div>
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">ID : ${user.id}</li>
-                                                    <li class="list-group-item">Email : ${user.email}</li>
-                                                    <li class="list-group-item">Full Name : ${user.fullName}</li>
-                                                    <li class="list-group-item">Phone : ${user.phone}</li>
-                                                    <li class="list-group-item">AddRess : ${user.addRess}</li>
-                                                </ul>
-                                            </div>
-                                            <a class="btn btn-success" href="/admin/user">Back</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                <div>Trang order</div>
                             </div>
                         </main>
                         <!-- include phan footer -->
@@ -85,8 +51,6 @@
                 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
                     crossorigin="anonymous"></script>
                 <script src="js/datatables-simple-demo.js"></script> -->
-                
-                </script>
             </body>
 
             </html>
