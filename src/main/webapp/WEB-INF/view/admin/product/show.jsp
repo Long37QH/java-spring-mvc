@@ -33,7 +33,41 @@
                                     <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
                                     <li class="breadcrumb-item active">Product</li>
                                 </ol>
-                                <div>Trang Product</div>
+                                <div class="mt-5">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <h3 class="">Table Product</h3>
+                                        <a class="btn btn-primary" href="/admin/product/creat">Create product</a>
+                                    </div>
+                                    <hr class="">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>id</th>
+                                                <th>Name</th>
+                                                <th>Price</th>
+                                                <th>Factory</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- <c:forEach var="user" items="${listUser1}"> -->
+                                                <tr>
+                                                    <th></th>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <a class="btn btn-success" href="/admin/product/1">Xem</a>
+                                                        <a class="btn btn-warning mx-2 "
+                                                            href="/admin/product/update/${user.id}">Sua</a>
+                                                        <a class="btn btn-danger" href="/admin/product/delete/1">Xoa</a>
+                                                    </td>
+                                                </tr>
+                                            <!-- </c:forEach> -->
+        
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </main>
                         <!-- include phan footer -->
