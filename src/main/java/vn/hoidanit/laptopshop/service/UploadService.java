@@ -13,19 +13,20 @@ import jakarta.servlet.ServletContext;
 public class UploadService {
 
     private final ServletContext servletContext;
-    
 
     public UploadService(ServletContext servletContext) {
         this.servletContext = servletContext;
     }
 
-
-    public String handeSaveUploadFile(MultipartFile file,String targetForder){
+    public String handeSaveUploadFile(MultipartFile file, String targetForder) {
+        // sử lý ko có file
+        if (file.isEmpty())
+            return "";
 
         String rootPath = this.servletContext.getRealPath("/resources/images");
         String finalName = "";
         try {
-            byte[] bytes = file.getBytes();       
+            byte[] bytes = file.getBytes();
 
             File dir = new File(rootPath + File.separator + targetForder);
             if (!dir.exists())
@@ -34,7 +35,7 @@ public class UploadService {
             // Create the file on server
             finalName = System.currentTimeMillis() + "-" + file.getOriginalFilename();
 
-            File serverFile = new File( dir.getAbsolutePath() + File.separator + finalName);
+            File serverFile = new File(dir.getAbsolutePath() + File.separator + finalName);
 
             BufferedOutputStream stream = new BufferedOutputStream(
                     new FileOutputStream(serverFile));

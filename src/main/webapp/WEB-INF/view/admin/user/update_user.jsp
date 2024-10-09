@@ -33,6 +33,12 @@
                 <script>
                     $(document).ready(() => {
                         const avatarFile = $("#avatarFile");
+                        const orgImage = "${user.avatar}";
+                        if(orgImage){
+                            const urlImage = "/images/avatar/"+orgImage;
+                            $("#avatarPreview").attr("src", urlImage);
+                            $("#avatarPreview").css({ "display": "block" });
+                        }
                         avatarFile.change(function (e) {
                             const imgURL = URL.createObjectURL(e.target.files[0]);
                             $("#avatarPreview").attr("src", imgURL);
@@ -64,20 +70,31 @@
                                         <div class=" col-md-6 col-12 mx-auto">
                                             <h2 class="">Update user</h2>
                                             <hr class="">
-                                            <form:form method="post" enctype="multipart/form-data" action="/admin/user/update" modelAttribute="user" >
+                                            <form:form method="post" enctype="multipart/form-data"
+                                                action="/admin/user/update" modelAttribute="user">
                                                 <div class="mb-3" style="display: none;">
                                                     <label for="id" class="form-label">ID:</label>
                                                     <form:input type="text" class="form-control" path="id" />
                                                 </div>
                                                 <div class="mb-3">
+                                                    <c:set var="errorFullname">
+                                                        <form:errors path="fullName" cssClass="invalid-feedback" />
+                                                    </c:set>
                                                     <label for="fullName" class="form-label">full Name :</label>
-                                                    <form:input type="text" class="form-control" path="fullName" />
+                                                    <form:input type="text" class="form-control ${not empty errorFullname ? 'is-invalid' : ''} " 
+                                                    path="fullName" />
+                                                    ${errorFullname}
                                                 </div>
                                                 <div class="mb-3">
+                                                    <c:set var="errorEmail" >
+                                                        <form:errors path="email" cssClass="invalid-feedback" />
+                                                    </c:set>
                                                     <label for="email" class="form-label">Email :</label>
-                                                    <form:input type="email" class="form-control" path="email" disabled="true" />
+                                                    <form:input type="email" class="form-control ${not empty errorEmail ? 'is-invalid' : '' } " path="email"
+                                                        readonly="true" />
+                                                    ${errorEmail}
                                                 </div>
-                
+
                                                 <div class="mb-3">
                                                     <label for="phone" class="form-label">Phone :</label>
                                                     <form:input type="text" class="form-control" path="phone" />
@@ -91,14 +108,14 @@
                                                         <label class="form-label">Role:</label>
                                                         <form:select class="form-select" path="role.name">
                                                             <!-- <option selected></option> -->
-                                                            <form:option value="ADMIN"/>
-                                                            <form:option value="USER"/>
+                                                            <form:option value="ADMIN" />
+                                                            <form:option value="USER" />
                                                         </form:select>
                                                     </div>
                                                     <div class="col">
                                                         <label for="avatarFile" class="form-label">Avatar:</label>
                                                         <input class="form-control" type="file" id="avatarFile"
-                                                            accept=".png, .jpg, .jpeg" name="fileImage" >
+                                                            accept=".png, .jpg, .jpeg" name="fileImage">
                                                     </div>
                                                 </div>
                                                 <div class=" col-12 mb-3">
@@ -109,7 +126,7 @@
                                                     <label for="mota" class="form-label">Mô tả:</label>
                                                     <textarea name="mota" path="editor"></textarea>
                                                 </div> -->
-                                                <div class="mx-auto" >
+                                                <div class="mx-auto">
                                                     <button type="submit" class="btn btn-primary">update</button>
                                                     <a href="/admin/user" class="btn btn-success">Back</a>
                                                 </div>
@@ -134,7 +151,7 @@
                 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
                     crossorigin="anonymous"></script>
                 <script src="js/datatables-simple-demo.js"></script> -->
-                
+
                 </script>
             </body>
 

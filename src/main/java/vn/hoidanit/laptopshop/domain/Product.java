@@ -1,10 +1,14 @@
 package vn.hoidanit.laptopshop.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "products")
@@ -13,12 +17,25 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotEmpty(message = "Không được để trống tên sản phẩm!")
     private String name;
-    private String price;
+
+    @Min(value = 1 , message = "Price phải lớn hơn 0!")
+    private double price;
+
     private String image;
+
+    @NotNull
+    @NotEmpty(message = "Không được để trống detailDesc!")
+    @Column(columnDefinition = "MEDIUMTEXT") 
     private String detailDesc;
+
+    @NotEmpty(message = "Không được để trống shortDesc!")
     private String shortDesc;
+
+    @Min(value = 1 , message = "Price phải lớn hơn hoặc bằng 1!")
     private long quantity;
+
     private long sold;
     private String factory;
     private String target;
@@ -39,10 +56,10 @@ public class Product {
     public void setName(String name) {
         this.name = name;
     }
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
     public String getImage() {
@@ -93,6 +110,7 @@ public class Product {
                 + detailDesc + ", shortDesc=" + shortDesc + ", quantity=" + quantity + ", sold=" + sold + ", factory="
                 + factory + ", target=" + target + "]";
     }
+    
 
     
 }

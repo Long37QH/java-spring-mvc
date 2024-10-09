@@ -43,29 +43,29 @@
                                 <h1 class="mt-4">Manger Users</h1>
                                 <ol class="breadcrumb mb-4">
                                     <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Update User</li>
+                                    <li class="breadcrumb-item active">Product Info</li>
                                 </ol>
                                 <div class="mt-5 mb-5">
                                     <div class="row">
                                         <div class="col-12 mx-auto">
                                             <div class="d-flex justify-content-between mb-2">
-                                                <h3 class="">Detail User by id = ${user.id}</h3>
+                                                <h3 class="">Detail User by id = ${product.id}</h3>
                                             </div>
                                             <hr class="">
                                             <div class="card mb-2" style="width: 60%;">
-                                                <img src="/images/avatar/${user.avatar}" style="max-height: 300px; max-width: 250px;" alt="anh dai dien">
+                                                <img src="/images/product/${product.image}" style="max-height: 300px; max-width: 250px;" alt="anh dai dien">
                                                 <div class="card-header ">
                                                     User Info
                                                 </div>
                                                 <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">ID : ${user.id}</li>
-                                                    <li class="list-group-item">Email : ${user.email}</li>
-                                                    <li class="list-group-item">Full Name : ${user.fullName}</li>
-                                                    <li class="list-group-item">Phone : ${user.phone}</li>
-                                                    <li class="list-group-item">AddRess : ${user.addRess}</li>
+                                                    <li class="list-group-item">ID : ${product.id}</li>
+                                                    <li class="list-group-item">Tên sản phẩm  : ${product.name}</li>
+                                                    <li class="list-group-item">Factory : ${product.factory}</li>
+                                                    <li class="list-group-item">Price : ${product.price}</li>
+                                                    <li class="list-group-item">Target : ${product.target}</li>
                                                 </ul>
                                             </div>
-                                            <a class="btn btn-success" href="/admin/user">Back</a>
+                                            <a class="btn btn-success" href="/admin/product">Back</a>
                                         </div>
                                     </div>
                                 </div>

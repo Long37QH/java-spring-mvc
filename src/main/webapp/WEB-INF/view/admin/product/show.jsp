@@ -14,6 +14,17 @@
                 <!-- <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" /> -->
                 <link href="/css/styles.css" rel="stylesheet" />
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+                <!-- Latest compiled and minified CSS -->
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+                <!-- Latest compiled JavaScript -->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+                <!-- Toastr CSS -->
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+                <!-- Toastr JS -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             </head>
 
             <body class="sb-nav-fixed">
@@ -50,20 +61,20 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <!-- <c:forEach var="user" items="${listUser1}"> -->
+                                            <c:forEach var="product" items="${listProducts}">
                                                 <tr>
-                                                    <th></th>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <th>${product.id}</th>
+                                                    <td>${product.name}</td>
+                                                    <td>${product.price}</td>
+                                                    <td>${product.factory}</td>
                                                     <td>
-                                                        <a class="btn btn-success" href="/admin/product/1">Xem</a>
+                                                        <a class="btn btn-success" href="/admin/product/${product.id}">Xem</a>
                                                         <a class="btn btn-warning mx-2 "
-                                                            href="/admin/product/update/${user.id}">Sua</a>
-                                                        <a class="btn btn-danger" href="/admin/product/delete/1">Xoa</a>
+                                                            href="/admin/product/update/${product.id}">Sua</a>
+                                                        <a class="btn btn-danger" href="/admin/product/delete/${product.id}">Xoa</a>
                                                     </td>
                                                 </tr>
-                                            <!-- </c:forEach> -->
+                                            </c:forEach>
         
                                         </tbody>
                                     </table>
@@ -85,6 +96,30 @@
                 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
                     crossorigin="anonymous"></script>
                 <script src="js/datatables-simple-demo.js"></script> -->
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        toastr.options = {
+                            "closeButton": true,
+                            "debug": false,
+                            "newestOnTop": true,
+                            "progressBar": true,
+                            "positionClass": "toast-top-right", // Thay đổi vị trí hiển thị
+                            "preventDuplicates": true,
+                            "showDuration": "300",
+                            "hideDuration": "1000",
+                            "timeOut": "3000", // Thời gian tồn tại của thông báo
+                            "extendedTimeOut": "1000",
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+                            "showMethod": "fadeIn",
+                            "hideMethod": "fadeOut"
+                        };
+                        // Check if there's a flash attribute 'message'
+                        <c:if test="${not empty message}">
+                            toastr.success("${message}");
+                        </c:if>
+                    });
+                </script>
             </body>
 
             </html>

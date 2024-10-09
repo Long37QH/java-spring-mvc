@@ -64,26 +64,39 @@
                                         <div class=" col-md-6 col-12 mx-auto">
                                             <h2 class="">create new user</h2>
                                             <hr class="">
-                                            <form:form method="post" enctype="multipart/form-data"  action="/admin/user/creat"
-                                                modelAttribute="usernew">
+                                            <form:form method="post" enctype="multipart/form-data"
+                                                action="/admin/user/creat" modelAttribute="usernew">
                                                 <div class="row g-3">
                                                     <div class="col">
+                                                        <!-- validate -->
+                                                        <c:set var="errorEmail" >
+                                                            <form:errors path="email" cssClass="invalid-feedback" />
+                                                        </c:set>
                                                         <label for="email" class="form-label">Địa chỉ Email:</label>
-                                                        <form:input type="email" class="form-control" id="email"
-                                                            path="email" aria-describedby="emailHelp" />
+                                                        <form:input type="email" class="form-control ${not empty errorEmail ? 'is-invalid' : '' } "
+                                                            id="email" path="email" />
+                                                        ${errorEmail}
                                                     </div>
                                                     <div class="col">
+                                                        <c:set var="errorPass" >
+                                                            <form:errors path="passwors" cssClass="invalid-feedback" />
+                                                        </c:set>
                                                         <label for="password" class="form-label">Password</label>
-                                                        <form:input type="password" class="form-control" id="password"
-                                                            path="passwors" />
+                                                        <form:input type="password" class="form-control ${not empty errorPass ? 'is-invalid' : ''}" 
+                                                        id="password" path="passwors" />
+                                                        ${errorPass}
                                                     </div>
                                                 </div>
 
                                                 <div class="row g-3">
                                                     <div class="col">
+                                                        <c:set var="errorFullname" >
+                                                            <form:errors path="fullName" cssClass="invalid-feedback" />
+                                                        </c:set>
                                                         <label for="fullName" class="form-label">Họ tên:</label>
-                                                        <form:input type="text" class="form-control" id="fullName"
-                                                            path="fullName" />
+                                                        <form:input type="text" class="form-control ${not empty errorFullname ? 'is-invalid' : ''}" 
+                                                        id="fullName" path="fullName" />
+                                                        ${errorFullname}
                                                     </div>
                                                     <div class="col">
                                                         <label for="phone" class="form-label">Số điện thoại:</label>
@@ -102,14 +115,14 @@
                                                         <label class="form-label">Role:</label>
                                                         <form:select class="form-select" path="role.name">
                                                             <!-- <option selected></option> -->
-                                                            <form:option value="ADMIN"/>
-                                                            <form:option value="USER"/>
+                                                            <form:option value="ADMIN" />
+                                                            <form:option value="USER" />
                                                         </form:select>
                                                     </div>
                                                     <div class="col">
                                                         <label for="avatarFile" class="form-label">Avatar:</label>
                                                         <input class="form-control" type="file" id="avatarFile"
-                                                            accept=".png, .jpg, .jpeg" name="fileImage" >
+                                                            accept=".png, .jpg, .jpeg" name="fileImage">
                                                     </div>
                                                 </div>
                                                 <div class=" col-12 mb-3">

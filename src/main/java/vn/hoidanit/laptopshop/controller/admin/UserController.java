@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import jakarta.validation.Valid;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UploadService;
 import vn.hoidanit.laptopshop.service.UserService;
@@ -67,13 +69,23 @@ public class UserController {
     // thuc hien create new
 
     @PostMapping("/admin/user/creat")
-    public String getValueInform(Model model, @ModelAttribute("usernew") User userNew,
+    public String getValueInform(Model model,
+            @ModelAttribute("usernew") @Valid User userNew,
+            BindingResult newUserBindingResult,
             @RequestParam("fileImage") MultipartFile file,
             RedirectAttributes redirectAttributes) {
-        
-        //lay thonhg tin file anh
+
+        List<FieldError> errors = newUserBindingResult.getFieldErrors();
+        for (FieldError error : errors) {
+            System.out.println(">>>>>" + error.getField() + " - " + error.getDefaultMessage());
+        }
+        // validate
+        if (newUserBindingResult.hasErrors()) {
+            return "/admin/user/creat";
+        }
+        // lay thonhg tin file anh
         String avatar = this.uploadService.handeSaveUploadFile(file, "avatar");
-        //ma hoa pass
+        // ma hoa pass
         String hashPassword = this.passwordEncoder.encode(userNew.getPasswors());
 
         // cap nhat lai thong tin vao doi tuong usernew
@@ -98,17 +110,32 @@ public class UserController {
     // xu ly update user
 
     @PostMapping("/admin/user/update")
-    public String postMethodName(Model model, @ModelAttribute("user") User userUp, @RequestParam("fileImage") MultipartFile file,
+    public String postUpdateProduct(Model model,
+            @ModelAttribute("user") @Valid User userUp,
+            BindingResult newUserBindingResult,
+            @RequestParam("fileImage") MultipartFile file,
             RedirectAttributes redirectAttributes) {
+
+        List<FieldError> errors = newUserBindingResult.getFieldErrors();
+        for (FieldError error : errors) {
+            System.out.println(">>>>>" + error.getField() + " - " + error.getDefaultMessage());
+        }
+                
+        // validate
+        if (newUserBindingResult.hasErrors()) {
+            return "/admin/user/update_user";
+        }
+
         User currenUser = this.userService.getUserById(userUp.getId());
         if (currenUser != null) {
+            if(!file.isEmpty()){
+                String avatar = this.uploadService.handeSaveUploadFile(file, "avatar");
+                currenUser.setAvatar(avatar);
+            }
             currenUser.setAddRess(userUp.getAddRess());
             currenUser.setFullName(userUp.getFullName());
             currenUser.setPhone(userUp.getPhone());
 
-            String avatar = this.uploadService.handeSaveUploadFile(file, "avatar");
-            currenUser.setAvatar(avatar);
-            
             currenUser.setRole(this.userService.getRoleByName(userUp.getRole().getName()));
 
             this.userService.handlSaveUser(currenUser);

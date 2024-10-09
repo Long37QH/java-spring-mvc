@@ -33,6 +33,12 @@
                 <script>
                     $(document).ready(() => {
                         const avatarFile = $("#image");
+                        const orgImage = "${product.image}";
+                        if(orgImage){
+                            const urlImage = "/images/product/"+orgImage;
+                            $("#avatarPreview").attr("src", urlImage);
+                            $("#avatarPreview").css({ "display": "block" });
+                        }
                         avatarFile.change(function (e) {
                             const imgURL = URL.createObjectURL(e.target.files[0]);
                             $("#avatarPreview").attr("src", imgURL);
@@ -57,15 +63,21 @@
                                 <h1 class="mt-4">Manger Product</h1>
                                 <ol class="breadcrumb mb-4">
                                     <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Create Product</li>
+                                    <li class="breadcrumb-item active">Update Product</li>
                                 </ol>
                                 <div class="mt-5 mb-5">
                                     <div class="row">
                                         <div class=" col-md-6 col-12 mx-auto">
-                                            <h2 class="">create new product</h2>
+                                            <h2 class="">Update a product</h2>
                                             <hr class="">
-                                            <form:form enctype="multipart/form-data" modelAttribute="productnew"
-                                                method="post" action="/admin/product/creat">
+                                            <form:form enctype="multipart/form-data" modelAttribute="product"
+                                                method="post" action="/admin/product/update">
+
+                                                <div class="mb-3" style="display: none;">
+                                                    <label for="id" class="form-label">ID:</label>
+                                                    <form:input type="text" class="form-control" path="id" />
+                                                </div>
+
                                                 <div class="row g-3">
                                                     <div class="col">
                                                         <c:set var="errorProductname">
@@ -87,79 +99,79 @@
                                                             id="price" placeholder="0.0" path="price" />
                                                         ${errorPrice}
                                                     </div>
-                                                </div>
-
-                                                <div class="mb-3">
-                                                    <c:set var="errorDetailDesc">
-                                                        <form:errors path="detailDesc" cssClass="invalid-feedback" />
-                                                    </c:set>
-                                                    <label for="detailDesc" class="form-label">Detail
-                                                        Description</label>
-                                                    <form:textarea type="text"
-                                                        class="form-control ${not empty errorDetailDesc ? 'is-invalid' : ''}"
-                                                        id="detailDesc" rows="3" path="detailDesc" />
-                                                    ${errorDetailDesc}
-                                                </div>
-
-                                                <div class="row g-3">
-                                                    <div class="col">
-                                                        <c:set var="errorshortDesc">
-                                                            <form:errors path="shortDesc" cssClass="invalid-feedback" />
+                                                    <div class="mb-3">
+                                                        <c:set var="errorDetailDesc">
+                                                            <form:errors path="detailDesc" cssClass="invalid-feedback" />
                                                         </c:set>
-                                                        <label for="shortDesc" class="form-label">Short Description:</label>
-                                                        <form:input type="text" class="form-control ${not empty errorshortDesc ? 'is-invalid' : ''}" id="shortDesc"
-                                                            path="shortDesc" />
-                                                        ${errorshortDesc}
+                                                        <label for="detailDesc" class="form-label">Detail
+                                                            Description</label>
+                                                        <form:textarea type="text"
+                                                            class="form-control ${not empty errorDetailDesc ? 'is-invalid' : ''}"
+                                                            id="detailDesc" rows="3" path="detailDesc" />
+                                                        ${errorDetailDesc}
                                                     </div>
-                                                    <div class="col">
-                                                        <c:set var="errorquantity">
-                                                            <form:errors path="quantity" cssClass="invalid-feedback" />
-                                                        </c:set>
-                                                        <label for="quantity" class="form-label">Quality:</label>
-                                                        <form:input type="number" class="form-control ${not empty errorquantity ? 'is-invalid' : ''}" id="quantity"
-                                                            placeholder="0" path="quantity" />
-                                                        ${errorquantity}
+    
+                                                    <div class="row g-3">
+                                                        <div class="col">
+                                                            <c:set var="errorshortDesc">
+                                                                <form:errors path="shortDesc" cssClass="invalid-feedback" />
+                                                            </c:set>
+                                                            <label for="shortDesc" class="form-label">Short Description:</label>
+                                                            <form:input type="text" class="form-control ${not empty errorshortDesc ? 'is-invalid' : ''}" id="shortDesc"
+                                                                path="shortDesc" />
+                                                            ${errorshortDesc}
+                                                        </div>
+                                                        <div class="col">
+                                                            <c:set var="errorquantity">
+                                                                <form:errors path="quantity" cssClass="invalid-feedback" />
+                                                            </c:set>
+                                                            <label for="quantity" class="form-label">Quality:</label>
+                                                            <form:input type="number" class="form-control ${not empty errorquantity ? 'is-invalid' : ''}" id="quantity"
+                                                                placeholder="0" path="quantity" />
+                                                            ${errorquantity}
+                                                        </div>
+                                                    </div>
+    
+                                                    <div class="row g-3">
+                                                        <div class="col">
+                                                            <label class="form-label">Factory:</label>
+                                                            <form:select class="form-select" path="factory">
+                                                                <!-- <option selected></option> -->
+                                                                <form:option value="APPLE">Apple(Macbook)</form:option>
+                                                                <form:option value="LENOVO">Lenovo</form:option>
+                                                                <form:option value="ACER">Acer</form:option>
+                                                                <form:option value="HP">HP</form:option>
+                                                                <form:option value="ASUS">Asus</form:option>
+                                                                <form:option value="MSI">MSI</form:option>
+                                                            </form:select>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label class="form-label">Target:</label>
+                                                            <form:select class="form-select" path="target">
+                                                                <!-- <option selected></option> -->
+                                                                <form:option value="GAMING">Gaming</form:option>
+                                                                <form:option value="SINH VIEN-VANPHONG">sinh viên - văn phòng</form:option>
+                                                                <form:option value="THIET-KE-DO-HOA">Thiết kế đồ họa
+                                                                </form:option>
+                                                                <form:option value="MONG-NHE">Mỏng nhẹ</form:option>
+                                                                <form:option value="DOANH-NHANH">Doanh nhân</form:option>
+                                                            </form:select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mt-2 mb-3">
+                                                        <label for="image" class="form-label">Images:</label>
+                                                        <input class="form-control" type="file" id="image"
+                                                            accept=".png, .jpg, .jpeg" name="ImageProduct">
+                                                    </div>
+                                                    <div class=" col-12 mb-3">
+                                                        <img style="max-height: 250px; display: none;" alt="avatar Preview"
+                                                            id="avatarPreview">
                                                     </div>
                                                 </div>
 
-                                                <div class="row g-3">
-                                                    <div class="col">
-                                                        <label class="form-label">Factory:</label>
-                                                        <form:select class="form-select" path="factory">
-                                                            <!-- <option selected></option> -->
-                                                            <form:option value="APPLE">Apple(Macbook)</form:option>
-                                                            <form:option value="LENOVO">Lenovo</form:option>
-                                                            <form:option value="ACER">Acer</form:option>
-                                                            <form:option value="HP">HP</form:option>
-                                                            <form:option value="ASUS">Asus</form:option>
-                                                            <form:option value="MSI">MSI</form:option>
-                                                        </form:select>
-                                                    </div>
-                                                    <div class="col">
-                                                        <label class="form-label">Target:</label>
-                                                        <form:select class="form-select" path="target">
-                                                            <!-- <option selected></option> -->
-                                                            <form:option value="GAMING">Gaming</form:option>
-                                                            <form:option value="SINH VIEN-VANPHONG">sinh viên - văn
-                                                                phòng</form:option>
-                                                            <form:option value="THIET-KE-DO-HOA">Thiết kế đồ họa
-                                                            </form:option>
-                                                            <form:option value="MONG-NHE">Mỏng nhẹ</form:option>
-                                                            <form:option value="DOANH-NHANH">Doanh nhân</form:option>
-                                                        </form:select>
-                                                    </div>
-                                                </div>
-                                                <div class="mt-2 mb-3">
-                                                    <label for="image" class="form-label">Images:</label>
-                                                    <input class="form-control" type="file" id="image"
-                                                        accept=".png, .jpg, .jpeg" name="ImageProduct">
-                                                </div>
-                                                <div class=" col-12 mb-3">
-                                                    <img style="max-height: 250px; display: none;" alt="avatar Preview"
-                                                        id="avatarPreview">
-                                                </div>
                                                 <div class="mb-5">
                                                     <button type="submit" class="btn btn-primary">save</button>
+                                                    <a href="/admin/product" class="btn btn-success">Back</a>
                                                 </div>
                                             </form:form>
                                         </div>
