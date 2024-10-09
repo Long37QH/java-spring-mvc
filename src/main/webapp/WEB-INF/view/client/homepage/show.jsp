@@ -75,13 +75,13 @@
                 <!-- Featurs Section End -->
 
 
-                <!-- Fruits Shop Start-->
+                <!-- Laptop Shop Start-->
                 <div class="container-fluid fruite py-5">
                     <div class="container py-5">
                         <div class="tab-class text-center">
                             <div class="row g-4">
                                 <div class="col-lg-4 text-start">
-                                    <h1>Our Organic Products</h1>
+                                    <h1>Sản phẩm nổi bật</h1>
                                 </div>
                                 <div class="col-lg-8 text-end">
                                     <ul class="nav nav-pills d-inline-flex text-center mb-5">
@@ -91,7 +91,7 @@
                                                 <span class="text-dark" style="width: 130px;">All Products</span>
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <!-- <li class="nav-item">
                                             <a class="d-flex py-2 m-2 bg-light rounded-pill" data-bs-toggle="pill"
                                                 href="#tab-2">
                                                 <span class="text-dark" style="width: 130px;">Vegetables</span>
@@ -100,7 +100,7 @@
                                         <li class="nav-item">
                                             <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill"
                                                 href="#tab-3">
-                                                <span class="text-dark" style="width: 130px;">Fruits</span>
+                                                <span class="text-dark" style="width: 130px;">Laptop</span>
                                             </a>
                                         </li>
                                         <li class="nav-item">
@@ -114,7 +114,7 @@
                                                 href="#tab-5">
                                                 <span class="text-dark" style="width: 130px;">Meat</span>
                                             </a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -126,18 +126,17 @@
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
                                                         <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-5.jpg"
+                                                            <img src="/client/img/lap3.jpg" style="height: 305px;"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Grapes</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
+                                                            <h4>Lenovo IdeaPad</h4>
+                                                            <p>Lenovo IdeaPad Slim 5 16IRL8 82XF001TUS - Intel Core i7-1355U | 16GB | 16 inch Full HD+</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -149,18 +148,17 @@
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
                                                         <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-5.jpg"
-                                                                class="img-fluid w-100 rounded-top" alt="">
+                                                            <img src="/client/img/lap4.png"
+                                                                class="img-fluid w-100 rounded-top" style="height: 305px;" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Grapes</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
+                                                            <h4>HP Victus</h4>
+                                                            <p>HP Victus 15 - AMD Ryzen 5-7535HS | Radeon RX 6550M | 15.6 inch Full HD 144Hz</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -172,18 +170,17 @@
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
                                                         <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-2.jpg"
+                                                            <img src="/client/img/lap5.jpg" style="height: 305px;"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Raspberries</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
+                                                            <h4>Laptop Acer Nitro 5</h4>
+                                                            <p>Laptop Acer Nitro 5 - Intel Core i5-12500H | Nvidia RTX 3050Ti | 15.6 Inch Full HD</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -195,18 +192,17 @@
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
                                                         <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-4.jpg"
+                                                            <img src="/client/img/lap6.jpg" style="height: 305px;"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Apricots</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
+                                                            <h4>Laptop Lenovo Flex 7 </h4>
+                                                            <p>Laptop Lenovo Flex 7 - Intel Core i7-1355U | 16GB DDR4 | 14 inch 2.2K Touch 100% sRGB</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -218,18 +214,17 @@
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
                                                         <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-3.jpg"
+                                                            <img src="/client/img/lap7.jpg" style="height: 305px;"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Banana</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
+                                                            <h4>Macbook Air M2</h4>
+                                                            <p>Macbook Air M2 2022 Cũ 8 Core GPU | 8GB | 256GB | 13.6 Inch Retina</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -241,18 +236,17 @@
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
                                                         <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-1.jpg"
+                                                            <img src="/client/img/lap8.jpg"style="height: 305px;"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Oranges</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
+                                                            <h4>Lenovo ThinkBook</h4>
+                                                            <p>Laptop Lenovo ThinkBook - Intel Core Ultra 5-125H | 16GB DDR5 | 14.5 inch 2K 100% sRGB</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -264,18 +258,17 @@
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
                                                         <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-2.jpg"
+                                                            <img src="/client/img/lap9.jpg" style="height: 305px;"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Raspberries</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
+                                                            <h4>Laptop MSI</h4>
+                                                            <p>Laptop MSI Modern 14 C12MO-660VN - Intel Core i5 1235U | 14.5 inch 2K</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -287,18 +280,17 @@
                                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                                     <div class="rounded position-relative fruite-item">
                                                         <div class="fruite-img">
-                                                            <img src="/client/img/fruite-item-5.jpg"
+                                                            <img src="/client/img/lap10.jpg" style="height: 305px;"
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                            <h4>Grapes</h4>
-                                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
-                                                                sed do eiusmod te incididunt</p>
+                                                            <h4>Laptop Lenovo LOQ </h4>
+                                                            <p>15ARP9 83JC007KUS - AMD R7 - 7435HS | 16GB DDR5 | RTX™ 4050 | 15.6 inch Full HD 144Hz</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -322,14 +314,14 @@
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                             <h4>Grapes</h4>
                                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
                                                                 sed do eiusmod te incididunt</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -345,14 +337,14 @@
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                             <h4>Raspberries</h4>
                                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
                                                                 sed do eiusmod te incididunt</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -376,14 +368,14 @@
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                             <h4>Oranges</h4>
                                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
                                                                 sed do eiusmod te incididunt</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -399,14 +391,14 @@
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                             <h4>Apple</h4>
                                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
                                                                 sed do eiusmod te incididunt</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -430,14 +422,14 @@
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                             <h4>Grapes</h4>
                                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
                                                                 sed do eiusmod te incididunt</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -453,14 +445,14 @@
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                             <h4>Apricots</h4>
                                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
                                                                 sed do eiusmod te incididunt</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -484,14 +476,14 @@
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                             <h4>Banana</h4>
                                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
                                                                 sed do eiusmod te incididunt</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -507,14 +499,14 @@
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                             <h4>Raspberries</h4>
                                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
                                                                 sed do eiusmod te incididunt</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -530,14 +522,14 @@
                                                                 class="img-fluid w-100 rounded-top" alt="">
                                                         </div>
                                                         <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                            style="top: 10px; left: 10px;">Fruits</div>
+                                                            style="top: 10px; left: 10px;">Laptop</div>
                                                         <div
                                                             class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                             <h4>Oranges</h4>
                                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
                                                                 sed do eiusmod te incididunt</p>
                                                             <div class="d-flex justify-content-between flex-lg-wrap">
-                                                                <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
+                                                                <p class="text-dark fs-5 fw-bold mb-0">$99</p>
                                                                 <a href="#"
                                                                     class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                                         class="fa fa-shopping-bag me-2 text-primary"></i>
@@ -554,7 +546,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Fruits Shop End-->
+                <!-- Laptop Shop End-->
 
                 <!-- footer -->
 
