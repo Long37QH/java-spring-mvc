@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import vn.hoidanit.laptopshop.domain.Product;
 import vn.hoidanit.laptopshop.service.ProductService;
+import org.springframework.web.bind.annotation.GetMapping;
+
+
 
 
 
@@ -28,4 +31,11 @@ public class HomeController {
         model.addAttribute("products", products);
         return "/client/homepage/show";
     }
+
+    @GetMapping("/register")
+    public String getRegisterPage(Model model) {
+       
+        return "/client/auth/register";
+    }
+    
 }

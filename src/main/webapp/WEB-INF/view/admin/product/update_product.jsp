@@ -34,8 +34,8 @@
                     $(document).ready(() => {
                         const avatarFile = $("#image");
                         const orgImage = "${product.image}";
-                        if(orgImage){
-                            const urlImage = "/images/product/"+orgImage;
+                        if (orgImage) {
+                            const urlImage = "/images/product/" + orgImage;
                             $("#avatarPreview").attr("src", urlImage);
                             $("#avatarPreview").css({ "display": "block" });
                         }
@@ -72,7 +72,23 @@
                                             <hr class="">
                                             <form:form enctype="multipart/form-data" modelAttribute="product"
                                                 method="post" action="/admin/product/update">
-
+                                                <!-- validate -->
+                                                <c:set var="errorProductname">
+                                                    <form:errors path="name" cssClass="invalid-feedback" />
+                                                </c:set>
+                                                <c:set var="errorPrice">
+                                                    <form:errors path="price" cssClass="invalid-feedback" />
+                                                </c:set>
+                                                <c:set var="errorDetailDesc">
+                                                    <form:errors path="detailDesc" cssClass="invalid-feedback" />
+                                                </c:set>
+                                                <c:set var="errorshortDesc">
+                                                    <form:errors path="shortDesc" cssClass="invalid-feedback" />
+                                                </c:set>
+                                                <c:set var="errorquantity">
+                                                    <form:errors path="quantity" cssClass="invalid-feedback" />
+                                                </c:set>
+                                                <!-- end-validate -->
                                                 <div class="mb-3" style="display: none;">
                                                     <label for="id" class="form-label">ID:</label>
                                                     <form:input type="text" class="form-control" path="id" />
@@ -80,9 +96,6 @@
 
                                                 <div class="row g-3">
                                                     <div class="col">
-                                                        <c:set var="errorProductname">
-                                                            <form:errors path="name" cssClass="invalid-feedback" />
-                                                        </c:set>
                                                         <label for="name" class="form-label">Name:</label>
                                                         <form:input type="text"
                                                             class="form-control ${not empty errorProductname ? 'is-invalid' : ''}"
@@ -90,9 +103,6 @@
                                                         ${errorProductname}
                                                     </div>
                                                     <div class="col">
-                                                        <c:set var="errorPrice">
-                                                            <form:errors path="price" cssClass="invalid-feedback" />
-                                                        </c:set>
                                                         <label for="price" class="form-label">Price:</label>
                                                         <form:input type="number"
                                                             class="form-control ${not empty errorPrice ? 'is-invalid' : ''}"
@@ -100,9 +110,6 @@
                                                         ${errorPrice}
                                                     </div>
                                                     <div class="mb-3">
-                                                        <c:set var="errorDetailDesc">
-                                                            <form:errors path="detailDesc" cssClass="invalid-feedback" />
-                                                        </c:set>
                                                         <label for="detailDesc" class="form-label">Detail
                                                             Description</label>
                                                         <form:textarea type="text"
@@ -110,28 +117,25 @@
                                                             id="detailDesc" rows="3" path="detailDesc" />
                                                         ${errorDetailDesc}
                                                     </div>
-    
+
                                                     <div class="row g-3">
                                                         <div class="col">
-                                                            <c:set var="errorshortDesc">
-                                                                <form:errors path="shortDesc" cssClass="invalid-feedback" />
-                                                            </c:set>
-                                                            <label for="shortDesc" class="form-label">Short Description:</label>
-                                                            <form:input type="text" class="form-control ${not empty errorshortDesc ? 'is-invalid' : ''}" id="shortDesc"
-                                                                path="shortDesc" />
+                                                            <label for="shortDesc" class="form-label">Short
+                                                                Description:</label>
+                                                            <form:input type="text"
+                                                                class="form-control ${not empty errorshortDesc ? 'is-invalid' : ''}"
+                                                                id="shortDesc" path="shortDesc" />
                                                             ${errorshortDesc}
                                                         </div>
                                                         <div class="col">
-                                                            <c:set var="errorquantity">
-                                                                <form:errors path="quantity" cssClass="invalid-feedback" />
-                                                            </c:set>
                                                             <label for="quantity" class="form-label">Quality:</label>
-                                                            <form:input type="number" class="form-control ${not empty errorquantity ? 'is-invalid' : ''}" id="quantity"
-                                                                placeholder="0" path="quantity" />
+                                                            <form:input type="number"
+                                                                class="form-control ${not empty errorquantity ? 'is-invalid' : ''}"
+                                                                id="quantity" placeholder="0" path="quantity" />
                                                             ${errorquantity}
                                                         </div>
                                                     </div>
-    
+
                                                     <div class="row g-3">
                                                         <div class="col">
                                                             <label class="form-label">Factory:</label>
@@ -150,11 +154,13 @@
                                                             <form:select class="form-select" path="target">
                                                                 <!-- <option selected></option> -->
                                                                 <form:option value="GAMING">Gaming</form:option>
-                                                                <form:option value="SINH VIEN-VANPHONG">sinh viên - văn phòng</form:option>
+                                                                <form:option value="SINH VIEN-VANPHONG">sinh viên - văn
+                                                                    phòng</form:option>
                                                                 <form:option value="THIET-KE-DO-HOA">Thiết kế đồ họa
                                                                 </form:option>
                                                                 <form:option value="MONG-NHE">Mỏng nhẹ</form:option>
-                                                                <form:option value="DOANH-NHANH">Doanh nhân</form:option>
+                                                                <form:option value="DOANH-NHANH">Doanh nhân
+                                                                </form:option>
                                                             </form:select>
                                                         </div>
                                                     </div>
@@ -164,8 +170,8 @@
                                                             accept=".png, .jpg, .jpeg" name="ImageProduct">
                                                     </div>
                                                     <div class=" col-12 mb-3">
-                                                        <img style="max-height: 250px; display: none;" alt="avatar Preview"
-                                                            id="avatarPreview">
+                                                        <img style="max-height: 250px; display: none;"
+                                                            alt="avatar Preview" id="avatarPreview">
                                                     </div>
                                                 </div>
 

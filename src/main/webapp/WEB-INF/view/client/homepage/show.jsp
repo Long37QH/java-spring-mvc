@@ -72,9 +72,7 @@
                     <!-- phan banner -->
                     <jsp:include page="../layout/banner.jsp" />
 
-                    <!-- Featurs Section Start -->
-                    <jsp:include page="../layout/featurs.jsp" />
-                    <!-- Featurs Section End -->
+                    
 
 
                     <!-- Laptop Shop Start-->
@@ -426,6 +424,10 @@
                         </div>
                     </div>
                     <!-- Laptop Shop End-->
+                     
+                     <!-- Featurs Section Start -->
+                    <jsp:include page="../layout/featurs.jsp" />
+                    <!-- Featurs Section End -->
 
                     <!-- footer -->
 

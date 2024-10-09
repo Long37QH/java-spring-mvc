@@ -34,8 +34,8 @@
                     $(document).ready(() => {
                         const avatarFile = $("#avatarFile");
                         const orgImage = "${user.avatar}";
-                        if(orgImage){
-                            const urlImage = "/images/avatar/"+orgImage;
+                        if (orgImage) {
+                            const urlImage = "/images/avatar/" + orgImage;
                             $("#avatarPreview").attr("src", urlImage);
                             $("#avatarPreview").css({ "display": "block" });
                         }
@@ -72,26 +72,29 @@
                                             <hr class="">
                                             <form:form method="post" enctype="multipart/form-data"
                                                 action="/admin/user/update" modelAttribute="user">
+                                                <!-- validate -->
+                                                <c:set var="errorFullname">
+                                                    <form:errors path="fullName" cssClass="invalid-feedback" />
+                                                </c:set>
+                                                <c:set var="errorEmail">
+                                                    <form:errors path="email" cssClass="invalid-feedback" />
+                                                </c:set>
                                                 <div class="mb-3" style="display: none;">
                                                     <label for="id" class="form-label">ID:</label>
                                                     <form:input type="text" class="form-control" path="id" />
                                                 </div>
                                                 <div class="mb-3">
-                                                    <c:set var="errorFullname">
-                                                        <form:errors path="fullName" cssClass="invalid-feedback" />
-                                                    </c:set>
                                                     <label for="fullName" class="form-label">full Name :</label>
-                                                    <form:input type="text" class="form-control ${not empty errorFullname ? 'is-invalid' : ''} " 
-                                                    path="fullName" />
+                                                    <form:input type="text"
+                                                        class="form-control ${not empty errorFullname ? 'is-invalid' : ''} "
+                                                        path="fullName" />
                                                     ${errorFullname}
                                                 </div>
                                                 <div class="mb-3">
-                                                    <c:set var="errorEmail" >
-                                                        <form:errors path="email" cssClass="invalid-feedback" />
-                                                    </c:set>
                                                     <label for="email" class="form-label">Email :</label>
-                                                    <form:input type="email" class="form-control ${not empty errorEmail ? 'is-invalid' : '' } " path="email"
-                                                        readonly="true" />
+                                                    <form:input type="email"
+                                                        class="form-control ${not empty errorEmail ? 'is-invalid' : '' } "
+                                                        path="email" readonly="true" />
                                                     ${errorEmail}
                                                 </div>
 
