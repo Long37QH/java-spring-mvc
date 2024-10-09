@@ -83,7 +83,7 @@
                     </div> 
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Hỏi Dân IT
+                        Long Dev 37 Pro
                     </div>
                 </nav>
             </div>

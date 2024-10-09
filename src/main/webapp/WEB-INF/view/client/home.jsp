@@ -21,9 +21,8 @@
                 <div class="row">
                     <h1 class="text-center">Trang chu</h1>
                 </div>
-                <a href="/admin/user" class="btn btn-warning" >List User</a>
+                <a href="/admin" class="btn btn-warning" >Admin</a>
                 <a href="/admin/user/creat" class="btn btn-primary" >create</a>
-                <button>css</button>
             </div>        
         </body>
 

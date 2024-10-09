@@ -108,12 +108,15 @@ public class User {
         this.orders = orders;
     }
 
-
     @Override
     public String toString() {
         return "User [id=" + id + ", email=" + email + ", passwors=" + passwors + ", fullName=" + fullName
-                + ", addRess=" + addRess + ", phone=" + phone + ", avatar=" + avatar + "]";
+                + ", addRess=" + addRess + ", phone=" + phone + ", avatar=" + avatar + ", role=" + role + ", orders="
+                + orders + "]";
     }
+
+
+    
 
     
 
