@@ -53,8 +53,8 @@ public class HomeController {
             return "/client/auth/register";
         }
         User user = this.userService.registerDTOtoUser(registerDTOUser);
-        String hashPassword = this.passwordEncoder.encode(user.getPasswors());
-        user.setPasswors(hashPassword);
+        String hashPassword = this.passwordEncoder.encode(user.getPassword());
+        user.setPassword(hashPassword);
         user.setRole(this.userService.getRoleByName("USER"));
 
         this.userService.handlSaveUser(user);
@@ -62,7 +62,7 @@ public class HomeController {
     }
 
     @GetMapping("/login")
-    public String getLoginPage() {
+    public String getLoginPage(Model model) {
         return "/client/auth/login";
     }
 

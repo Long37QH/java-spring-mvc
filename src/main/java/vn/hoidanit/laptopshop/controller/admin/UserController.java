@@ -86,11 +86,11 @@ public class UserController {
         // lay thonhg tin file anh
         String avatar = this.uploadService.handeSaveUploadFile(file, "avatar");
         // ma hoa pass
-        String hashPassword = this.passwordEncoder.encode(userNew.getPasswors());
+        String hashPassword = this.passwordEncoder.encode(userNew.getPassword());
 
         // cap nhat lai thong tin vao doi tuong usernew
         userNew.setAvatar(avatar);
-        userNew.setPasswors(hashPassword);
+        userNew.setPassword(hashPassword);
         userNew.setRole(this.userService.getRoleByName(userNew.getRole().getName()));
 
         // System.out.println("run hear : " + userNew);

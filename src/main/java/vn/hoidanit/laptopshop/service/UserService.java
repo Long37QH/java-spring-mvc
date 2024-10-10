@@ -32,7 +32,7 @@ public class UserService {
     }
 
     public List<User> getAllByEmail(String email){
-        return this.userRepository.findByEmail(email);
+        return this.userRepository.findOneByEmail(email);
     }
 
     public User getUserById(long id){
@@ -53,7 +53,11 @@ public class UserService {
         User user = new User();
         user.setFullName(registerDTO.getFirstName()+" "+registerDTO.getLastName());
         user.setEmail(registerDTO.getEmail());
-        user.setPasswors(registerDTO.getPasswors());
+        user.setPassword(registerDTO.getPassword());
         return user;
+    }
+
+    public boolean checkEmailExist(String email){
+        return this.userRepository.existsByEmail(email);
     }
 }

@@ -71,7 +71,7 @@
                                                     <form:errors path="email" cssClass="invalid-feedback" />
                                                 </c:set>
                                                 <c:set var="errorPass">
-                                                    <form:errors path="passwors" cssClass="invalid-feedback" />
+                                                    <form:errors path="password" cssClass="invalid-feedback" />
                                                 </c:set>
                                                 <c:set var="errorFullname">
                                                     <form:errors path="fullName" cssClass="invalid-feedback" />
@@ -88,7 +88,7 @@
                                                         <label for="password" class="form-label">Password</label>
                                                         <form:input type="password"
                                                             class="form-control ${not empty errorPass ? 'is-invalid' : ''}"
-                                                            id="password" path="passwors" />
+                                                            id="password" path="password" />
                                                         ${errorPass}
                                                     </div>
                                                 </div>

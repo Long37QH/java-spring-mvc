@@ -29,7 +29,7 @@ public class User {
     private String email;
     
     @Size(min = 3, message = "Tên phải có ít nhất 3 ký tự")
-    private String passwors;
+    private String password;
 
     @NotNull
     @Size(min = 2, message = "Tên phải có ít nhất 2 ký tự")
@@ -58,12 +58,12 @@ public class User {
     }
 
 
-    public String getPasswors() {
-        return passwors;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswors(String passwors) {
-        this.passwors = passwors;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFullName() {
@@ -116,7 +116,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", email=" + email + ", passwors=" + passwors + ", fullName=" + fullName
+        return "User [id=" + id + ", email=" + email + ", password=" + password + ", fullName=" + fullName
                 + ", addRess=" + addRess + ", phone=" + phone + ", avatar=" + avatar + ", role=" + role + ", orders="
                 + orders + "]";
     }
