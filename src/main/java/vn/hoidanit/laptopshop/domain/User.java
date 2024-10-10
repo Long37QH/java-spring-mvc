@@ -57,13 +57,6 @@ public class User {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getPasswors() {
         return passwors;
@@ -126,6 +119,14 @@ public class User {
         return "User [id=" + id + ", email=" + email + ", passwors=" + passwors + ", fullName=" + fullName
                 + ", addRess=" + addRess + ", phone=" + phone + ", avatar=" + avatar + ", role=" + role + ", orders="
                 + orders + "]";
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 
