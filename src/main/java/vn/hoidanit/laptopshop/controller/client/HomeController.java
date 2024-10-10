@@ -18,6 +18,8 @@ import vn.hoidanit.laptopshop.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 public class HomeController {
@@ -58,12 +60,18 @@ public class HomeController {
         user.setRole(this.userService.getRoleByName("USER"));
 
         this.userService.handlSaveUser(user);
-        return "redirect:/login";
+        return "/client/auth/login";
     }
 
     @GetMapping("/login")
-    public String getLoginPage(Model model) {
+    public String getLoginPage() {
         return "/client/auth/login";
     }
+
+    @PostMapping("/login")
+    public String postMethodName() {
+        return "redirect:/login";
+    }
+    
 
 }

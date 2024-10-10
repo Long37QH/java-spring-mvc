@@ -36,7 +36,7 @@ public class ProductController {
     public String getDashBoard(Model model) {
         List<Product> listProducts = this.productService.getAllProducts();
         model.addAttribute("listProducts", listProducts);
-        return "admin/product/show";
+        return "/admin/product/show";
     }
 
     @GetMapping("/admin/product/creat")

@@ -34,13 +34,6 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    // @RequestMapping("/")
-    // public String getHomePage(Model model) {
-    // List<User> arrUser = userService.getAllByEmail("badgun37@gmail.com");
-    // System.out.println(arrUser);
-    // // model.addAttribute("test", "test");
-    // return "/client/home";
-    // }
 
     // trang danh sach user
     @GetMapping("/admin/user")
