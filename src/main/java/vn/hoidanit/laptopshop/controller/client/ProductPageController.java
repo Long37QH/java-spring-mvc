@@ -16,6 +16,8 @@ import jakarta.servlet.http.HttpSession;
 
 
 
+
+
 @Controller
 public class ProductPageController {
 
@@ -42,6 +44,11 @@ public class ProductPageController {
         this.productService.handleAddProductToCart(email,productId);
         
         return "redirect:/";
+    }
+    
+    @GetMapping("/cart")
+    public String getMethodName() {
+        return "/client/cart/show";
     }
     
 }
