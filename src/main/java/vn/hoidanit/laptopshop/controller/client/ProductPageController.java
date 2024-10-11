@@ -7,6 +7,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import vn.hoidanit.laptopshop.domain.Product;
 import vn.hoidanit.laptopshop.service.ProductService;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
+
 
 
 
@@ -27,4 +33,15 @@ public class ProductPageController {
         model.addAttribute("product", product);
         return "/client/product/detail";
     } 
+
+    @PostMapping("/add-product-to-cart/{id}")
+    public String postMethodName(@PathVariable long id,HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        String email = (String) session.getAttribute("email");
+        long productId = id;
+        this.productService.handleAddProductToCart(email,productId);
+        
+        return "redirect:/";
+    }
+    
 }
