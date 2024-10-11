@@ -24,10 +24,11 @@
                                     <div class="col-lg-5">
                                         <div class="card shadow-lg border-0 rounded-lg mt-5">
                                             <div class="card-header">
-                                                <h3 class="text-center font-weight-light my-4">Login</h3>
+                                                <h3 class="text-center font-weight-light my-4">Đăng Nhập</h3>
                                             </div>
                                             <div class="card-body">
                                                 <form method="post" action="/login">
+                                                    <!-- tac thông báo lỗi đang nhâp đi theo form log error của Spring Security -->
                                                     <c:if test="${param.error != null}">
                                                         <div class="my-2" style="color: red;">Invalid email or password.
                                                         </div>
@@ -35,7 +36,8 @@
 
                                                     <div class="form-floating mb-3">
                                                         <input class="form-control" type="email"
-                                                            placeholder="name@example.com" name="username" />
+                                                            placeholder="name@example.com" name="username" /> 
+                                                            <!--input mac định name = username-->
                                                         <label>Email address</label>
                                                     </div>
                                                     <div class="form-floating mb-3">
@@ -44,15 +46,16 @@
                                                         <label>Password</label>
                                                     </div>
                                                     <div>
+                                                        <!-- phần này bắt buộc để sinh token tự động để sinh key cho phiên đang nhập trong
+                                                         Spring Security -->
                                                         <input type="hidden" name="${_csrf.parameterName}"
                                                             value="${_csrf.token}" />
-
                                                     </div>
 
                                                     <div class="mt-4 mb-0">
                                                         <div class="d-grid">
                                                             <button class="btn btn-primary btn-block">
-                                                                Login
+                                                                Đăng Nhập
                                                             </button>
                                                         </div>
                                                     </div>
