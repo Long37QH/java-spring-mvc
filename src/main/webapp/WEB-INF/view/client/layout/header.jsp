@@ -86,7 +86,13 @@
                                             <li>
                                                 <hr class="dropdown-divider">
                                             </li>
-                                            <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+                                            <li>
+                                                <form action="/logout" method="post" >
+                                                    <input type="hidden" name="${_csrf.parameterName}"
+                                                            value="${_csrf.token}" />
+                                                    <button class="dropdown-item" >Đăng xuất</button>
+                                                </form>
+                                            </li>
                                         </ul>
                                     </div>
                                 </c:if>
