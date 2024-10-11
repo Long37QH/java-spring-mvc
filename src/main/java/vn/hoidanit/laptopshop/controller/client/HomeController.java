@@ -67,4 +67,9 @@ public class HomeController {
     public String getLoginPage(Model model) {
         return "/client/auth/login";
     }
+
+    @GetMapping("/error-page")
+    public String getErrorPage(Model model) {
+        return "/client/auth/error_page";
+    }
 }

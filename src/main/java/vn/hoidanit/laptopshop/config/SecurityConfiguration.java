@@ -48,9 +48,9 @@ public class SecurityConfiguration {
                         .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.INCLUDE).permitAll()
 
                         //set up các đường dẫn không phải đăng nhập
-                        .requestMatchers("/","/login","/product/**", "/client/**", "/css/**", "/js/**", "/images/**").permitAll()
+                        .requestMatchers("/","/login","/register","/product/**", "/client/**", "/css/**", "/js/**", "/images/**").permitAll()
                         
-                        // set up đương dan cho role ADMIN
+                        // set up đương dan cho role ADMIN được phép truy cập thêm các role khong khong truy cap được
                         .requestMatchers("/admin/**").hasRole("ADMIN")
 
                         .anyRequest().authenticated())
@@ -60,7 +60,8 @@ public class SecurityConfiguration {
                         .loginPage("/login")
                         .failureUrl("/login?error")
                         .successHandler(CustomSuccessHandler())
-                        .permitAll());
+                        .permitAll())
+                        .exceptionHandling(ex -> ex.accessDeniedPage("/error-page"));
 
         return http.build();
     }
