@@ -1,10 +1,11 @@
 package vn.hoidanit.laptopshop.service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.stereotype.Service;
 
+import jakarta.servlet.http.HttpSession;
 import vn.hoidanit.laptopshop.domain.Cart;
 import vn.hoidanit.laptopshop.domain.CartDetail;
 import vn.hoidanit.laptopshop.domain.Product;
@@ -46,7 +47,7 @@ public class ProductService {
         this.productRepository.deleteById(id);
     }
 
-    public void handleAddProductToCart(String email,long productId) {
+    public void handleAddProductToCart(String email,long productId,HttpSession session) {
         
         User user = this.userService.getUserByEmail(email);
         if(user != null){
@@ -56,7 +57,7 @@ public class ProductService {
                 // tao moi cart
                 Cart cardNew = new Cart();
                 cardNew.setUser(user);
-                cardNew.setSum(1);
+                cardNew.setSum(0);
 
                 cart =  this.cartRepository.save(cardNew);
             }
@@ -64,14 +65,31 @@ public class ProductService {
             Product product = this.productRepository.findById(productId);
             if(product != null){
             Product realProduct = product;
-            // luu cart_detail
-            CartDetail cartDetail = new CartDetail();
-            cartDetail.setCart(cart);
-            cartDetail.setProduct(realProduct);
-            cartDetail.setPrice(realProduct.getPrice());
-            cartDetail.setQuantity(1);
 
-            this.cartDetailRepository.save(cartDetail);
+            CartDetail oldDetail = this.cartDetailRepository.findByCartAndProduct(cart, realProduct);
+            
+            if(oldDetail == null){
+                // luu cart_detail
+                CartDetail cartDetail = new CartDetail();
+                cartDetail.setCart(cart);
+                cartDetail.setProduct(realProduct);
+                cartDetail.setPrice(realProduct.getPrice());
+                cartDetail.setQuantity(1);
+
+                this.cartDetailRepository.save(cartDetail);
+                // up date cart (sum) tong so san pham trong cart
+                int slsp = cart.getSum() + 1;
+                cart.setSum(slsp);
+                this.cartRepository.save(cart);
+                // cap nhat len session
+                // session.setAttribute("sumsp", slsp);
+                session.setAttribute("sumsp", slsp);
+
+            }else{
+                oldDetail.setQuantity(oldDetail.getQuantity() + 1);
+                this.cartDetailRepository.save(oldDetail);
+            }
+            
             }
             
         }
