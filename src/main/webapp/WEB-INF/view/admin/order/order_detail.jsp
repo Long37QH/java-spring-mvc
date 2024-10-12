@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
             <!DOCTYPE html>
             <html lang="en">
 
@@ -18,6 +19,7 @@
                 <!-- Latest compiled and minified CSS -->
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
                 <!-- Latest compiled JavaScript -->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
                 <!-- Toastr CSS -->
@@ -39,47 +41,43 @@
                     <div id="layoutSidenav_content">
                         <main>
                             <div class="container-fluid px-4">
-                                <h1 class="mt-4">Manger Users</h1>
+                                <h1 class="mt-4">Manger Oder</h1>
                                 <ol class="breadcrumb mb-4">
                                     <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">User</li>
+                                    <li class="breadcrumb-item active">Order Info</li>
                                 </ol>
-                                <div class="mt-5">
+                                <div class="mt-5 mb-5">
                                     <div class="row">
                                         <div class="col-12 mx-auto">
                                             <div class="d-flex justify-content-between mb-2">
-                                                <h3 class="">List Users</h3>
-                                                <a class="btn btn-primary" href="/admin/user/creat">Create user</a>
+                                                <h3 class="">Detail Order by id = ${order.id}</h3>
                                             </div>
                                             <hr class="">
                                             <table class="table table-bordered table-hover">
                                                 <thead>
                                                     <tr>
-                                                        <th>id</th>
-                                                        <th>Email</th>
-                                                        <th>Full Name</th>
-                                                        <th>Role</th>
-                                                        <th>Action</th>
+                                                        <th>Sản phẩm</th>
+                                                        <th>tên</th>
+                                                        <th>Gía</th>
+                                                        <th>Số lượng</th>
+                                                        <th>Thành Tiền</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <c:forEach var="user" items="${listUser1}">
+                                                    <c:forEach var="orderDetail" items="${orderDetails}">
                                                         <tr>
-                                                            <th>${user.id}</th>
-                                                            <td>${user.fullName}</td>
-                                                            <td>${user.email}</td>
-                                                            <td>${user.role.name}</td>
-                                                            <td>
-                                                                <a class="btn btn-success" href="/admin/user/${user.id}">Xem</a>
-                                                                <a class="btn btn-warning mx-2 "
-                                                                    href="/admin/user/update/${user.id}">Sua</a>
-                                                                <a class="btn btn-danger" href="/admin/user/delete/${user.id}">Xoa</a>
-                                                            </td>
+                                                            <th>
+                                                                <img src="/images/product/${orderDetail.product.image}" width="150px" alt="">
+                                                            </th>
+                                                            <td>${orderDetail.product.name}</td>
+                                                            <td><fmt:formatNumber type="number" value="${orderDetail.price}"/> đ</td>
+                                                            <td>${orderDetail.quantity}</td>
+                                                            <td><fmt:formatNumber type="number" value="${orderDetail.price * orderDetail.quantity}"/> đ</td>
                                                         </tr>
                                                     </c:forEach>
-                
                                                 </tbody>
                                             </table>
+                                            <a class="btn btn-success" href="/admin/order">Back</a>
                                         </div>
                                     </div>
                                 </div>
@@ -100,29 +98,7 @@
                 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
                     crossorigin="anonymous"></script>
                 <script src="js/datatables-simple-demo.js"></script> -->
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        toastr.options = {
-                            "closeButton": true,
-                            "debug": false,
-                            "newestOnTop": true,
-                            "progressBar": true,
-                            "positionClass": "toast-top-right", // Thay đổi vị trí hiển thị
-                            "preventDuplicates": true,
-                            "showDuration": "300",
-                            "hideDuration": "1000",
-                            "timeOut": "3000", // Thời gian tồn tại của thông báo
-                            "extendedTimeOut": "1000",
-                            "showEasing": "swing",
-                            "hideEasing": "linear",
-                            "showMethod": "fadeIn",
-                            "hideMethod": "fadeOut"
-                        };
-                        // Check if there's a flash attribute 'message'
-                        <c:if test="${not empty message}">
-                            toastr.success("${message}");
-                        </c:if>
-                    });
+                
                 </script>
             </body>
 
