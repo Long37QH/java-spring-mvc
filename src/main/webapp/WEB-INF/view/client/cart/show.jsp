@@ -69,7 +69,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="cartDetail" items="${cartDetails}">
+                            <c:forEach var="cartDetail" items="${cartDetails}" varStatus="status" >
                                 <tr>
                                     <th scope="row">
                                         <div class="d-flex align-items-center">
@@ -77,7 +77,7 @@
                                         </div>
                                     </th>
                                     <td>
-                                        <a href="/product/${cartDetail.product.id}">
+                                        <a href="/product/${cartDetail.product.id}" target="_blank" >
                                             <p class="mb-0 mt-4">${cartDetail.product.name}</p>
                                         </a>              
                                     </td>
@@ -96,7 +96,8 @@
                                             <input type="text" class="form-control form-control-sm text-center border-0"
                                             value="${cartDetail.quantity}"
                                             data-cart-detail-id="${cartDetail.id}"
-                                            data-cart-detail-price="${cartDetail.price}">
+                                            data-cart-detail-price="${cartDetail.price}"
+                                            data-cart-detail-index="${status.index}">
 
                                             <div class="input-group-btn">
                                                 <button class="btn btn-sm btn-plus rounded-circle bg-light border">
@@ -153,9 +154,33 @@
                                         <fmt:formatNumber type="number" value="${totalPrice}" /> đ
                                     </p>
                                 </div>
-                                <button
-                                    class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
-                                    type="button">Xác nhận đặt hàng</button>
+                                <form:form action="/confirm-checkout" method="post" modelAttribute="cart">
+                                    <input type="hidden" name="${_csrf.parameterName}"
+                                        value="${_csrf.token}" />
+                                    <div style="display: none;">
+                                        <c:forEach var="cartDetail" items="${cart.cartDetails}"
+                                            varStatus="status">
+                                            <div class="mb-3">
+                                                <div class="form-group">
+                                                    <label>Id:</label>
+                                                    <form:input class="form-control" type="text"
+                                                        value="${cartDetail.id}"
+                                                        path="cartDetails[${status.index}].id" />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Quantity:</label>
+                                                    <form:input class="form-control" type="text"
+                                                        value="${cartDetail.quantity}"
+                                                        path="cartDetails[${status.index}].quantity" />
+                                                </div>
+                                            </div>
+                                        </c:forEach>
+                                    </div>
+                                    <button
+                                        class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4">Xác
+                                        nhận thanh toán
+                                    </button>
+                                </form:form>
                             </div>
                         </div>
                     </div>
