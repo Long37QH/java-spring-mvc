@@ -119,10 +119,17 @@ public class ProductPageController {
             @RequestParam("receiverName") String receiverName,
             @RequestParam("receiverAddress") String receiverAddress,
             @RequestParam("receiverPhone") String receiverPhone) {
-        HttpSession session = request.getSession(false);
 
-        return "redirect:/";
+                User currentUser = new User();// null
+                HttpSession session = request.getSession(false);
+                long id = (long) session.getAttribute("id");
+                currentUser.setId(id);
+
+                this.productService.handlePlaceOrder(currentUser, session, receiverName, receiverAddress, receiverPhone );
+        return "redirect:/thank";
     }
-
-
+    @GetMapping("/thank")
+    public String getThankPage() {
+        return "/client/cart/thanks";
+    }
 }
