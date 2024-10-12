@@ -65,7 +65,8 @@ public class ProductService {
             Product product = this.productRepository.findById(productId);
             if(product != null){
             Product realProduct = product;
-
+            
+            //lay thong tin san phan da ton tai truoc do trong gio hang
             CartDetail oldDetail = this.cartDetailRepository.findByCartAndProduct(cart, realProduct);
             
             if(oldDetail == null){
@@ -94,6 +95,10 @@ public class ProductService {
             
         }
         
+    }
+
+    public Cart fetchByUser(User user){
+        return this.cartRepository.findByUser(user);
     }
 
 }
