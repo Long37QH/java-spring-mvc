@@ -11,9 +11,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import vn.hoidanit.laptopshop.domain.Cart;
 import vn.hoidanit.laptopshop.domain.CartDetail;
+import vn.hoidanit.laptopshop.domain.Order;
+import vn.hoidanit.laptopshop.domain.OrderDetail;
 import vn.hoidanit.laptopshop.domain.Product;
 import vn.hoidanit.laptopshop.domain.User;
+import vn.hoidanit.laptopshop.service.OrderService;
 import vn.hoidanit.laptopshop.service.ProductService;
+import vn.hoidanit.laptopshop.service.UserService;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -22,20 +27,18 @@ import jakarta.servlet.http.HttpSession;
 
 
 
-
-
-
-
-
-
 @Controller
 public class ProductPageController {
 
     private final ProductService productService;
+    private final UserService userService;
+    private final OrderService orderService;
     
 
-    public ProductPageController(ProductService productService) {
+    public ProductPageController(ProductService productService,UserService userService,OrderService orderService) {
         this.productService = productService;
+        this.userService = userService;
+        this.orderService = orderService;
     }
 
 
@@ -128,8 +131,22 @@ public class ProductPageController {
                 this.productService.handlePlaceOrder(currentUser, session, receiverName, receiverAddress, receiverPhone );
         return "redirect:/thank";
     }
+
     @GetMapping("/thank")
     public String getThankPage() {
         return "/client/cart/thanks";
     }
+
+    @GetMapping("/order-history")
+    public String getHistoryOrderPage(Model model, HttpServletRequest request) {
+        
+        HttpSession session = request.getSession(false);
+        long id = (long)session.getAttribute("id");
+        User user = this.userService.getUserById(id);
+
+        List<Order> orders = this.orderService.getAllOrderByUser(user);
+        model.addAttribute("orders", orders);
+        return "/client/cart/order_history";
+    }
+
 }

@@ -31,6 +31,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         // xác định dường dân trả về theo role
 
         roleTargetUrlMap.put("ROLE_USER", "/");
+        // roleTargetUrlMap.put("ROLE_USER1", "/product/1");
         roleTargetUrlMap.put("ROLE_ADMIN", "/admin");
 
         final Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
