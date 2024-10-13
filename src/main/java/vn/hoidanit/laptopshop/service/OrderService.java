@@ -2,7 +2,8 @@ package vn.hoidanit.laptopshop.service;
 
 import java.util.List;
 
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import vn.hoidanit.laptopshop.domain.Order;
@@ -24,6 +25,10 @@ public class OrderService {
     // lay danh sach order
     public List<Order> getAllOrder(){
         return this.orderRepository.findAll();
+    }
+
+    public Page<Order>getAllOrder(Pageable pageable){
+        return this.orderRepository.findAll(pageable);
     }
 
     //lây thong tin order theo id
