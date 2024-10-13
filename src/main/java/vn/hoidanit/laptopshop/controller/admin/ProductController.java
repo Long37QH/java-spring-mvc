@@ -1,7 +1,11 @@
 package vn.hoidanit.laptopshop.controller.admin;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,7 +25,6 @@ import vn.hoidanit.laptopshop.service.UploadService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 @Controller
 public class ProductController {
     private final ProductService productService;
@@ -33,9 +36,27 @@ public class ProductController {
     }
 
     @GetMapping("/admin/product")
-    public String getDashBoard(Model model) {
-        List<Product> listProducts = this.productService.getAllProducts();
+    public String getDashBoard(Model model,
+            @RequestParam("page") Optional<String> pageOptional) {
+        
+        int page = 1;
+        try {
+            if (pageOptional.isPresent()) {
+                page = Integer.parseInt(pageOptional.get());
+            }else{
+                // page = 1
+            }
+        } catch (Exception e) {
+            // page = 1
+        }
+        Pageable pageable = PageRequest.of(page - 1, 5);
+        Page<Product> prs = this.productService.getAllProducts(pageable);
+        List<Product> listProducts = prs.getContent();
         model.addAttribute("listProducts", listProducts);
+        //lây so trong hiện tại truyên sang view
+        model.addAttribute("curentPage", page);
+        // lấy tông số trang
+        model.addAttribute("totalPages", prs.getTotalPages());
         return "/admin/product/show";
     }
 
@@ -101,8 +122,8 @@ public class ProductController {
 
         Product CurrenProduct = this.productService.getProductById(productUp.getId());
 
-        if(CurrenProduct != null){
-            if(!file.isEmpty()){
+        if (CurrenProduct != null) {
+            if (!file.isEmpty()) {
                 String image = this.uploadService.handeSaveUploadFile(file, "product");
                 CurrenProduct.setImage(image);
             }
@@ -128,6 +149,5 @@ public class ProductController {
         redirectAttributes.addFlashAttribute("message", "Xóa sản phẩm thành công!");
         return "redirect:/admin/product";
     }
-    
 
 }
