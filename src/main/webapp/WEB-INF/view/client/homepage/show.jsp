@@ -72,7 +72,7 @@
                     <!-- phan banner -->
                     <jsp:include page="../layout/banner.jsp" />
 
-                    
+
 
 
                     <!-- Laptop Shop Start-->
@@ -87,34 +87,10 @@
                                         <ul class="nav nav-pills d-inline-flex text-center mb-5">
                                             <li class="nav-item">
                                                 <a class="d-flex m-2 py-2 bg-light rounded-pill active"
-                                                    data-bs-toggle="pill" href="#tab-1">
+                                                    href="/products">
                                                     <span class="text-dark" style="width: 130px;">All Products</span>
                                                 </a>
                                             </li>
-                                            <!-- <li class="nav-item">
-                                            <a class="d-flex py-2 m-2 bg-light rounded-pill" data-bs-toggle="pill"
-                                                href="#tab-2">
-                                                <span class="text-dark" style="width: 130px;">Vegetables</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill"
-                                                href="#tab-3">
-                                                <span class="text-dark" style="width: 130px;">Laptop</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill"
-                                                href="#tab-4">
-                                                <span class="text-dark" style="width: 130px;">Bread</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="d-flex m-2 py-2 bg-light rounded-pill" data-bs-toggle="pill"
-                                                href="#tab-5">
-                                                <span class="text-dark" style="width: 130px;">Meat</span>
-                                            </a>
-                                        </li> -->
                                         </ul>
                                     </div>
                                 </div>
@@ -132,7 +108,7 @@
                                                                             style="height: 200px;"
                                                                             class="img-fluid w-100 rounded-top" alt="">
                                                                     </div>
-                                                                </a>  
+                                                                </a>
                                                                 <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
                                                                     style="top: 10px; left: 10px;">Laptop</div>
                                                                 <div
@@ -143,18 +119,24 @@
                                                                         </a>
                                                                     </h4>
                                                                     <p style="font-size: 13px;">${product.shortDesc}</p>
-                                                                    <div class="d-flex flex-lg-wrap justify-content-center ">
+                                                                    <div
+                                                                        class="d-flex flex-lg-wrap justify-content-center flex-column ">
                                                                         <p style="font-size: 15px; text-align: center; width: 100%;"
                                                                             class="text-dark fw-bold mb-3">
-                                                                            <fmt:formatNumber type="number" value="${product.price}"/> đ
+                                                                            <fmt:formatNumber type="number"
+                                                                                value="${product.price}" /> đ
                                                                         </p>
-                                                                        <form action="/add-product-to-cart/${product.id}" method="post">
-                                                                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
-                                                                            <button 
-                                                                            class="mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                                class="fa fa-shopping-bag me-2 text-primary"></i>
-                                                                            Add to cart</button>
-                                                                        </form>     
+                                                                        <form
+                                                                            action="/add-product-to-cart/${product.id}"
+                                                                            method="post">
+                                                                            <input type="hidden"
+                                                                                name="${_csrf.parameterName}"
+                                                                                value="${_csrf.token}" />
+                                                                            <button
+                                                                                class="mx-auto btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                                                    class="fa fa-shopping-bag me-2 text-primary"></i>
+                                                                                Add to cart</button>
+                                                                        </form>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -422,12 +404,50 @@
                                         </div>
                                     </div>
                                 </div>
+                                <nav aria-label="col-12 Page navigation example">
+                                    <ul class="pagination d-flex justify-content-center mt-5">
+                                        <c:if test="${curentPage != 1}">
+                                            <li class="page-item">
+                                                <a class="rounded page-link" href="/?page=${curentPage -1}"
+                                                    aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                        </c:if>
+                                        <c:forEach begin="0" end="${totalPages - 1}" varStatus="loop">
+                                            <li class="page-item">
+                                                <a class="${(loop.index + 1) eq curentPage ? 'active':''} rounded page-link"
+                                                    href="/?page=${loop.index + 1}">${loop.index + 1}</a>
+                                            </li>
+                                        </c:forEach>
+                                        <c:if test="${curentPage != totalPages}">
+                                            <li class="page-item">
+                                                <a class="rounded page-link"
+                                                    href="/?page=${curentPage + 1}" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </c:if>
+                                    </ul>
+                                </nav>
+                                <!-- <div class="col-12">
+                                    <div class="pagination d-flex justify-content-center mt-5">
+                                        <a href="#" class="rounded">&laquo;</a>
+                                        <a href="#" class="active rounded">1</a>
+                                        <a href="#" class="rounded">2</a>
+                                        <a href="#" class="rounded">3</a>
+                                        <a href="#" class="rounded">4</a>
+                                        <a href="#" class="rounded">5</a>
+                                        <a href="#" class="rounded">6</a>
+                                        <a href="#" class="rounded">&raquo;</a>
+                                    </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                     <!-- Laptop Shop End-->
-                     
-                     <!-- Featurs Section Start -->
+
+                    <!-- Featurs Section Start -->
                     <jsp:include page="../layout/featurs.jsp" />
                     <!-- Featurs Section End -->
 

@@ -1,6 +1,7 @@
 package vn.hoidanit.laptopshop.controller.client;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jakarta.validation.Valid;
 import vn.hoidanit.laptopshop.domain.Product;
@@ -38,11 +40,25 @@ public class HomeController {
     }
 
     @RequestMapping("/")
-    public String getHomePage(Model model) {
-        Pageable pageable = PageRequest.of(0, 10);
+    public String getHomePage(Model model,@RequestParam("page") Optional<String> pageOptional) {
+        int page = 1;
+        try {
+            if (pageOptional.isPresent()) {
+                page = Integer.parseInt(pageOptional.get());
+            }else{
+                // page = 1
+            }
+        } catch (Exception e) {
+            // page = 1
+        }
+        Pageable pageable = PageRequest.of(page - 1, 8);
         Page<Product> prs = this.productService.getAllProducts(pageable);
         List<Product> products = prs.getContent();
         model.addAttribute("products", products);
+        //lây so trong hiện tại truyên sang view
+        model.addAttribute("curentPage", page);
+        // lấy tông số trang
+        model.addAttribute("totalPages", prs.getTotalPages());
         return "/client/homepage/show";
     }
 

@@ -34,7 +34,7 @@
                             id="navbarCollapse">
                             <div class="navbar-nav">
                                 <a href="/" class="nav-item nav-link active">Trang Chủ</a>
-                                <a href="product/1" class="nav-item nav-link">Sản phẩm</a>
+                                <a href="/products" class="nav-item nav-link">Sản phẩm</a>
                                 <!-- <a href="product/1" class="nav-item nav-link">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
