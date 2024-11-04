@@ -58,7 +58,7 @@ public class SecurityConfiguration {
                         .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.INCLUDE).permitAll()
 
                         // set up các đường dẫn không phải đăng nhập
-                        .requestMatchers("/", "/login", "/register", "/product/**", "/client/**", "/css/**", "/js/**",
+                        .requestMatchers("/", "/login", "/register","/products", "/product/**", "/client/**", "/css/**", "/js/**",
                                 "/images/**")
                         .permitAll()
 
